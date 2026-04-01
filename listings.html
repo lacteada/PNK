@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse all property listings on PNK Realty – houses, apartments, condos and more for sale and rent." />
+  <title>All Listings – PNK Real Estate</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════ NAVBAR ════════════════ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="PNK Real Estate home">
+        <span>PNK</span> Realty
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="listings.html" class="active">Listings</a></li>
+        <li><a href="listings.html?type=sale">Buy</a></li>
+        <li><a href="listings.html?type=rent">Rent</a></li>
+        <li><a href="index.html#agents">Agents</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="listings.html" class="btn btn-outline" style="padding:.5rem 1.1rem;font-size:.88rem;">List Property</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════ PAGE BANNER ═══════════ -->
+  <section class="page-banner" aria-label="Page header">
+    <div class="page-banner-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">›</span>
+        <span>Listings</span>
+      </nav>
+      <h1>Property Listings</h1>
+      <p style="color:rgba(255,255,255,.7);margin-top:.5rem;">Discover 12,400+ properties across the country</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ LISTINGS LAYOUT ═══════ -->
+  <div class="container">
+    <div class="listings-layout">
+
+      <!-- ── Sidebar Filter ──────────────────────────────── -->
+      <aside class="filter-sidebar" aria-label="Filter properties">
+        <h3>🔍 Filter Properties</h3>
+
+        <div class="filter-group">
+          <label for="f-listing-type">Listing Type</label>
+          <div class="search-select-wrapper">
+            <select id="f-listing-type" class="search-select">
+              <option value="">Buy &amp; Rent</option>
+              <option value="sale">For Sale</option>
+              <option value="rent">For Rent</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label for="f-property-type">Property Type</label>
+          <div class="search-select-wrapper">
+            <select id="f-property-type" class="search-select">
+              <option value="">All Types</option>
+              <option value="house">House</option>
+              <option value="apartment">Apartment</option>
+              <option value="condo">Condo</option>
+              <option value="townhouse">Townhouse</option>
+              <option value="commercial">Commercial</option>
+              <option value="land">Land</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>Price Range</label>
+          <div class="price-range">
+            <input type="number" class="search-input" placeholder="Min $" min="0" />
+            <input type="number" class="search-input" placeholder="Max $" min="0" />
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label for="f-beds">Bedrooms</label>
+          <div class="search-select-wrapper">
+            <select id="f-beds" class="search-select">
+              <option value="">Any</option>
+              <option value="1">1+</option>
+              <option value="2">2+</option>
+              <option value="3">3+</option>
+              <option value="4">4+</option>
+              <option value="5">5+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label for="f-baths">Bathrooms</label>
+          <div class="search-select-wrapper">
+            <select id="f-baths" class="search-select">
+              <option value="">Any</option>
+              <option value="1">1+</option>
+              <option value="2">2+</option>
+              <option value="3">3+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>Amenities</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item">
+              <input type="checkbox" /> Swimming Pool
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" /> Garage
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" /> Garden / Yard
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" /> Air Conditioning
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" /> Pet Friendly
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" /> Gym / Fitness
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label for="f-area">Min. Area (sq ft)</label>
+          <input id="f-area" type="number" class="search-input" placeholder="e.g. 800" min="0" />
+        </div>
+
+        <button class="filter-reset">Reset Filters</button>
+      </aside>
+
+      <!-- ── Listings Main ───────────────────────────────── -->
+      <main aria-label="Property listings">
+
+        <div class="listings-header">
+          <p class="listings-count">Showing <strong>18</strong> of <strong>12,400+</strong> properties</p>
+
+          <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;">
+            <div class="view-toggle">
+              <button class="view-btn active" data-view="grid" aria-label="Grid view" title="Grid view">⊞</button>
+              <button class="view-btn" data-view="list" aria-label="List view" title="List view">☰</button>
+            </div>
+            <div class="search-select-wrapper" style="min-width:160px;">
+              <select class="sort-select" aria-label="Sort listings">
+                <option>Sort: Newest</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Most Popular</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-grid">
+
+          <!-- Card 1 -->
+          <article class="property-card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80" alt="Modern Luxury Villa" loading="lazy" />
+              <div class="card-badges"><span class="badge badge--sale">For Sale</span><span class="badge badge--new">New</span></div>
+              <button class="card-fav" aria-label="Add to favourites" aria-pressed="false">♡</button>
+            </div>
+            <div class="card-body">
+              <div class="card-price">$895,000</div>
+              <h3 class="card-title"><a href="property.html">Modern Luxury Villa with Pool</a></h3>
+              <p class="card-location">Beverly Hills, CA 90210</p>
+              <div class="card-features">
+                <div class="card-feature"><span class="icon">🛏</span> 5 Beds</div>
+                <div class="card-feature"><span class="icon">🚿</span> 4 Baths</div>
+                <div class="card-feature"><span class="icon">📐</span> 3,800 sq ft</div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="agent-mini"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah" /><span class="agent-mini-name">Sarah Miller</span></div>
+              <span class="card-footer-date">3 days ago</span>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="property-card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Contemporary Apartment" loading="lazy" />
+              <div class="card-badges"><span class="badge badge--rent">For Rent</span></div>
+              <button class="card-fav" aria-label="Add to favourites" aria-pressed="false">♡</button>
+            </div>
+            <div class="card-body">
+              <div class="card-price">$4,200 <span>/ month</span></div>
+              <h3 class="card-title"><a href="property.html">Contemporary Downtown Apartment</a></h3>
+              <p class="card-location">Manhattan, New York, NY 10001</p>
+              <div class="card-features">
+                <div class="card-feature"><span class="icon">🛏</span> 2 Beds</div>
+                <div class="card-feature"><span class="icon">🚿</span> 2 Baths</div>
+                <div class="card-feature"><span class="icon">📐</span> 1,150 sq ft</div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="agent-mini"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James" /><span class="agent-mini-name">James Wilson</span></div>
+              <span class="card-footer-date">1 day ago</span>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="property-card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=600&q=80" alt="Family Home" loading="lazy" />
+              <div class="card-badges"><span class="badge badge--sale">For Sale</span></div>
+              <button class="card-fav" aria-label="Add to favourites" aria-pressed="false">♡</button>
+            </div>
+            <div class="card-body">
+              <div class="card-price">$455,000</div>
+              <h3 class="card-title"><a href="property.html">Suburban Family Home w/ Garden</a></h3>
+              <p class="card-location">Austin, TX 78701</p>
+              <div class="card-features">
+                <div class="card-feature"><span class="icon">🛏</span> 4 Beds</div>
+                <div class="card-feature"><span class="icon">🚿</span> 3 Baths</div>
+                <div class="card-feature"><span class="icon">📐</span> 2,400 sq ft</div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="agent-mini"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Lisa" /><span class="agent-mini-name">Lisa Chen</span></div>
+              <span class="card-footer-date">5 days ago</span>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="property-card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Waterfront Penthouse" loading="lazy" />
+              <div class="card-badges"><span class="badge badge--sale">For Sale</span><span class="badge badge--new">New</span></div>
+              <button class="card-fav" aria-label="Add to favourites" aria-pressed="false">♡</button>
+            </div>
+            <div class="card-body">
+              <div class="card-price">$2,100,000</div>
+              <h3 class="card-title"><a href="property.html">Waterfront Penthouse Suite</a></h3>
+              <p class="card-location">Miami Beach, FL 33139</p>
+              <div class="card-features">
+                <div class="card-feature"><span class="icon">🛏</span> 4 Beds</div>
+                <div class="card-feature"><span class="icon">🚿</span> 5 Baths</div>
+                <div class="card-feature"><span class="icon">📐</span> 5,200 sq ft</div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="agent-mini"><img src="https://randomuser.me/api/portraits/men/55.jpg" alt="Carlos" /><span class="agent-mini-name">Carlos Rivera</span></div>
+              <span class="card-footer-date">Today</span>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="property-card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=600&q=80" alt="Mountain Cabin" loading="lazy" />
+              <div class="card-badges"><span class="badge badge--sale">For Sale</span></div>
+              <button class="card-fav" aria-label="Add to favourites" aria-pressed="false">♡</button>
+            </div>
+            <div class="card-body">
+              <div class="card-price">$325,000</div>
+              <h3 class="card-title"><a href="property.html">Mountain Cabin Retreat</a></h3>
+              <p class="card-location">Aspen, CO 81611</p>
+              <div class="card-features">
+                <div class="card-feature"><span class="icon">🛏</span> 3 Beds</div>
+                <div class="card-feature"><span class="icon">🚿</span> 2 Baths</div>
+                <div class="card-feature"><span class="icon">📐</span> 1,800 sq ft</div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="agent-mini"><img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Emma" /><span class="agent-mini-name">Emma Davis</span></div>
+              <span class="card-footer-date">2 days ago</span>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="property-card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600&q=80" alt="Studio Apartment" loading="lazy" />
+              <div class="card-badges"><span class="badge badge--rent">For Rent</span></div>
+              <button class="card-fav" aria-label="Add to favourites" aria-pressed="false">♡</button>
+            </div>
+            <div class="card-body">
+              <div class="card-price">$1,800 <span>/ month</span></div>
+              <h3 class="card-title"><a href="property.html">Modern Studio Apartment</a></h3>
+              <p class="card-location">Chicago, IL 60601</p>
+              <div class="card-features">
+                <div class="card-feature"><span class="icon">🛏</span> Studio</div>
+                <div class="card-feature"><span class="icon">🚿</span> 1 Bath</div>
+                <div class="card-feature"><span class="icon">📐</span> 620 sq ft</div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="agent-mini"><img src="https://randomuser.me/api/portraits/men/78.jpg" alt="Michael" /><span class="agent-mini-name">Michael Park</span></div>
+              <span class="card-footer-date">4 days ago</span>
+            </div>
+          </article>
+
+          <!-- Card 7 -->
+          <article class="property-card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&q=80" alt="Colonial Revival House" loading="lazy" />
+              <div class="card-badges"><span class="badge badge--sale">For Sale</span></div>
+              <button class="card-fav" aria-label="Add to favourites" aria-pressed="false">♡</button>
+            </div>
+            <div class="card-body">
+              <div class="card-price">$620,000</div>
+              <h3 class="card-title"><a href="property.html">Colonial Revival House</a></h3>
+              <p class="card-location">Boston, MA 02101</p>
+              <div class="card-features">
+                <div class="card-feature"><span class="icon">🛏</span> 5 Beds</div>
+                <div class="card-feature"><span class="icon">🚿</span> 3 Baths</div>
+                <div class="card-feature"><span class="icon">📐</span> 2,900 sq ft</div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="agent-mini"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah" /><span class="agent-mini-name">Sarah Miller</span></div>
+              <span class="card-footer-date">6 days ago</span>
+            </div>
+          </article>
+
+          <!-- Card 8 -->
+          <article class="property-card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80" alt="Craftsman Bungalow" loading="lazy" />
+              <div class="card-badges"><span class="badge badge--sale">For Sale</span></div>
+              <button class="card-fav" aria-label="Add to favourites" aria-pressed="false">♡</button>
+            </div>
+            <div class="card-body">
+              <div class="card-price">$378,000</div>
+              <h3 class="card-title"><a href="property.html">Craftsman Bungalow</a></h3>
+              <p class="card-location">Portland, OR 97201</p>
+              <div class="card-features">
+                <div class="card-feature"><span class="icon">🛏</span> 3 Beds</div>
+                <div class="card-feature"><span class="icon">🚿</span> 2 Baths</div>
+                <div class="card-feature"><span class="icon">📐</span> 1,650 sq ft</div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="agent-mini"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James" /><span class="agent-mini-name">James Wilson</span></div>
+              <span class="card-footer-date">1 week ago</span>
+            </div>
+          </article>
+
+          <!-- Card 9 -->
+          <article class="property-card">
+            <div class="card-image">
+              <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&q=80" alt="Luxury Penthouse" loading="lazy" />
+              <div class="card-badges"><span class="badge badge--rent">For Rent</span><span class="badge badge--new">New</span></div>
+              <button class="card-fav" aria-label="Add to favourites" aria-pressed="false">♡</button>
+            </div>
+            <div class="card-body">
+              <div class="card-price">$7,500 <span>/ month</span></div>
+              <h3 class="card-title"><a href="property.html">Luxury High-Rise Penthouse</a></h3>
+              <p class="card-location">San Francisco, CA 94102</p>
+              <div class="card-features">
+                <div class="card-feature"><span class="icon">🛏</span> 3 Beds</div>
+                <div class="card-feature"><span class="icon">🚿</span> 3 Baths</div>
+                <div class="card-feature"><span class="icon">📐</span> 2,100 sq ft</div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="agent-mini"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Lisa" /><span class="agent-mini-name">Lisa Chen</span></div>
+              <span class="card-footer-date">Today</span>
+            </div>
+          </article>
+
+        </div><!-- /.property-grid -->
+
+        <!-- Pagination -->
+        <nav class="pagination" aria-label="Listings pagination">
+          <button class="page-btn" aria-label="Previous page">‹</button>
+          <button class="page-btn active" aria-current="page">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn">4</button>
+          <span style="color:var(--clr-muted);padding:.5rem;">…</span>
+          <button class="page-btn">24</button>
+          <button class="page-btn" aria-label="Next page">›</button>
+        </nav>
+
+      </main>
+    </div><!-- /.listings-layout -->
+  </div><!-- /.container -->
+
+  <!-- ═══════════════════════════════ FOOTER ════════════════ -->
+  <footer class="footer" role="contentinfo" style="margin-top:3rem;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo"><span>PNK</span> Realty</a>
+          <p>Your trusted partner in real estate. We connect buyers, sellers, and renters with the properties that change their lives.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Twitter">𝕏</a>
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="listings.html">All Listings</a></li>
+            <li><a href="listings.html?type=sale">Buy a Home</a></li>
+            <li><a href="listings.html?type=rent">Rent a Home</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Property Types</h4>
+          <ul class="footer-links">
+            <li><a href="listings.html?type=house">Houses</a></li>
+            <li><a href="listings.html?type=apartment">Apartments</a></li>
+            <li><a href="listings.html?type=condo">Condos</a></li>
+            <li><a href="listings.html?type=townhouse">Townhouses</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li><span class="icon">📍</span> 123 Realty Ave, Suite 400, Los Angeles, CA 90001</li>
+            <li><span class="icon">📞</span> +1 (800) 765-4321</li>
+            <li><span class="icon">✉</span> hello@pnkrealty.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 PNK Realty. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

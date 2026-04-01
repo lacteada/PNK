@@ -1,0 +1,134 @@
+/* ============================================================
+   PNK Real Estate – Responsive Styles
+   ============================================================ */
+
+/* ── Tablet (max 1024px) ──────────────────────────────────── */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card { position: static; }
+
+  .listings-layout {
+    grid-template-columns: 240px 1fr;
+  }
+
+  .steps-grid::before { display: none; }
+}
+
+/* ── Mobile landscape / tablet portrait (max 768px) ──────── */
+@media (max-width: 768px) {
+  :root { --gap: 1rem; }
+
+  /* Nav */
+  .nav-links,
+  .nav-actions .btn { display: none; }
+
+  .nav-toggle { display: flex; }
+
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 70px; left: 0; right: 0;
+    background: rgba(26,26,46,.97);
+    backdrop-filter: blur(12px);
+    padding: 1.5rem 1.25rem 2rem;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+
+  .nav-links.open a { font-size: 1.1rem; }
+
+  /* Hero */
+  .hero { min-height: 85vh; }
+  .hero-stats { gap: 1.5rem; }
+
+  /* Search */
+  .search-form {
+    grid-template-columns: 1fr 1fr;
+    gap: .6rem;
+  }
+
+  .search-form .search-field:first-child { grid-column: span 2; }
+  .search-btn { grid-column: span 2; width: 100%; justify-content: center; }
+
+  /* Listings layout */
+  .listings-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-sidebar {
+    position: static;
+    order: -1;
+  }
+
+  /* Property detail */
+  .gallery-main  { height: 280px; }
+  .gallery-thumbs { grid-template-columns: repeat(4, 1fr); }
+
+  .detail-features { gap: 1rem; }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .steps-grid { gap: 2.5rem; }
+
+  /* Agents grid */
+  .agents-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+
+  /* Map */
+  .map-placeholder { height: 260px; }
+}
+
+/* ── Small mobile (max 480px) ─────────────────────────────── */
+@media (max-width: 480px) {
+  .hero h1 { font-size: 1.9rem; }
+
+  .hero-cta { flex-direction: column; }
+  .hero-cta .btn { width: 100%; justify-content: center; }
+
+  .search-form { grid-template-columns: 1fr; }
+  .search-form .search-field:first-child { grid-column: span 1; }
+  .search-btn { grid-column: span 1; }
+
+  .property-grid { grid-template-columns: 1fr; }
+
+  .categories-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .newsletter-form {
+    flex-direction: column;
+    border-radius: 0;
+    overflow: visible;
+  }
+
+  .newsletter-input  { border-radius: var(--radius-sm); }
+  .newsletter-btn    { border-radius: var(--radius-sm); padding: .85rem; }
+
+  .gallery-thumbs { grid-template-columns: repeat(3, 1fr); }
+
+  .page-banner { padding-top: 6rem; }
+
+  .back-to-top { bottom: 1rem; right: 1rem; }
+}
+
+/* ── Print ────────────────────────────────────────────────── */
+@media print {
+  .navbar, .newsletter-section, .footer, .back-to-top { display: none !important; }
+  .hero { min-height: auto; padding: 2rem 0; }
+  .property-card { break-inside: avoid; }
+}
