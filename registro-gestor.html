@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Registro Gestor Inmobiliario Free - PNK Inmobiliaria">
+  <title>Registrar Gestor — PNK Inmobiliaria</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav role="navigation" aria-label="Navegación principal">
+  <a href="index.html" class="logo">PNK <span>Inmobiliaria</span></a>
+  <div class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="registro-propietario.html">Registrar Propietario</a>
+    <a href="login.html">Ingresar</a>
+  </div>
+</nav>
+
+<main id="main-content">
+  <div class="form-page">
+    <div class="form-box">
+      <h2>Gestor Inmobiliario Free</h2>
+      <p class="subtitle">Genera ingresos adicionales gestionando propiedades en la plataforma</p>
+
+      <div class="alert alert-info" role="note" aria-live="polite">
+        🏆 Si eres aceptado recibirás tu <strong>PENKA_ID</strong> y podrás comenzar a ofertar propiedades y ganar comisiones.
+      </div>
+
+      <form action="#" method="post" novalidate aria-label="Formulario de registro de gestor inmobiliario">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rut">RUT <abbr title="Campo obligatorio">*</abbr></label>
+            <input type="text" id="rut" name="rut" placeholder="12.345.678-9" required aria-required="true" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="sexo">Sexo <abbr title="Campo obligatorio">*</abbr></label>
+            <select id="sexo" name="sexo" required aria-required="true">
+              <option value="">Seleccionar</option>
+              <option value="M">Masculino</option>
+              <option value="F">Femenino</option>
+              <option value="O">Prefiero no decir</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="nombre">Nombre Completo <abbr title="Campo obligatorio">*</abbr></label>
+          <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellidos" required aria-required="true" autocomplete="name">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nacimiento">Fecha de Nacimiento <abbr title="Campo obligatorio">*</abbr></label>
+            <input type="date" id="nacimiento" name="nacimiento" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono Móvil <abbr title="Campo obligatorio">*</abbr></label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+56 9 1234 5678" required aria-required="true" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="correo">Correo Electrónico <abbr title="Campo obligatorio">*</abbr></label>
+          <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required aria-required="true" autocomplete="email">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="password">Contraseña <abbr title="Campo obligatorio">*</abbr></label>
+            <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" required aria-required="true" minlength="8" autocomplete="new-password">
+          </div>
+          <div class="form-group">
+            <label for="password2">Confirmar Contraseña <abbr title="Campo obligatorio">*</abbr></label>
+            <input type="password" id="password2" name="password2" placeholder="Repetir contraseña" required aria-required="true" autocomplete="new-password">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="certificado">Certificado de Antecedentes <abbr title="Campo obligatorio">*</abbr></label>
+          <input type="file" id="certificado" name="certificado" accept=".pdf,.jpg,.png" required aria-required="true" aria-describedby="cert-hint">
+          <small id="cert-hint" style="color:var(--muted);font-size:.78rem">Formatos aceptados: PDF, JPG, PNG. Máximo 5 MB.</small>
+        </div>
+
+        <div class="form-group">
+          <div class="form-check">
+            <input type="checkbox" id="terminos" name="terminos" required aria-required="true">
+            <label for="terminos">Acepto los <a href="#" style="color:var(--accent)">términos y condiciones</a> de participación</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100" aria-label="Enviar formulario de registro de gestor inmobiliario">Registrarme como Gestor Inmobiliario</button>
+
+        <div class="form-footer">
+          <a href="login.html">¿Ya tienes cuenta? Ingresar</a>
+          <a href="registro-propietario.html">Registrarme como Propietario</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer role="contentinfo">
+  <div class="foot-links">
+    <a href="index.html">Inicio</a>
+    <a href="registro-propietario.html">Registro Propietario</a>
+    <a href="login.html">Panel Admin</a>
+  </div>
+  <p>© 2025 PNK Inmobiliaria</p>
+</footer>
+
+</body>
+</html>

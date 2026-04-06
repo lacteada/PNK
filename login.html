@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Iniciar sesión - PNK Inmobiliaria">
+  <title>Ingresar — PNK Inmobiliaria</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav role="navigation" aria-label="Navegación principal">
+  <a href="index.html" class="logo">PNK <span>Inmobiliaria</span></a>
+  <div class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="registro-propietario.html">Registrar Propietario</a>
+    <a href="registro-gestor.html">Registrar Gestor</a>
+  </div>
+</nav>
+
+<main id="main-content">
+  <div class="form-page">
+
+    <!-- Panel Login -->
+    <div class="form-box" id="panel-login" role="region" aria-labelledby="login-title">
+      <h2 id="login-title">Bienvenido</h2>
+      <p class="subtitle">Ingresa a tu cuenta para gestionar tus propiedades</p>
+
+      <form action="dashboard.html" method="get" novalidate aria-label="Formulario de inicio de sesión">
+        <div class="form-group">
+          <label for="usuario">Correo Electrónico <abbr title="Campo obligatorio">*</abbr></label>
+          <input type="email" id="usuario" name="usuario" placeholder="correo@ejemplo.com" required aria-required="true" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña <abbr title="Campo obligatorio">*</abbr></label>
+          <input type="password" id="password" name="password" placeholder="Tu contraseña" required aria-required="true" autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn btn-primary w-100" aria-label="Ingresar al sistema">Ingresar</button>
+      </form>
+
+      <div class="divider" aria-hidden="true">o</div>
+
+      <button class="btn btn-outline w-100" onclick="mostrar('panel-recuperar')" aria-label="Ir al formulario de recuperación de contraseña">
+        Recuperar Contraseña
+      </button>
+
+      <div class="login-links mt-2">
+        <p>¿No tienes cuenta?
+          <a href="registro-propietario.html">Propietario</a> ·
+          <a href="registro-gestor.html">Gestor</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Panel Recuperar -->
+    <div class="form-box" id="panel-recuperar" style="display:none" role="region" aria-labelledby="recuperar-title">
+      <h2 id="recuperar-title">Recuperar Contraseña</h2>
+      <p class="subtitle">Ingresa tu correo para recibir instrucciones de recuperación</p>
+
+      <form action="#" method="post" novalidate aria-label="Formulario de recuperación de contraseña">
+        <div class="form-group">
+          <label for="correo-rec">Correo Electrónico <abbr title="Campo obligatorio">*</abbr></label>
+          <input type="email" id="correo-rec" name="correo" placeholder="correo@ejemplo.com" required aria-required="true" autocomplete="email">
+        </div>
+        <button type="submit" class="btn btn-primary w-100" aria-label="Enviar instrucciones de recuperación">Enviar instrucciones</button>
+      </form>
+
+      <div class="divider" aria-hidden="true">o</div>
+
+      <button class="btn btn-outline w-100" onclick="mostrar('panel-login')" aria-label="Volver al formulario de inicio de sesión">
+        ← Volver al Login
+      </button>
+    </div>
+
+  </div>
+</main>
+
+<footer role="contentinfo">
+  <div class="foot-links">
+    <a href="index.html">Inicio</a>
+    <a href="registro-propietario.html">Registro Propietario</a>
+    <a href="registro-gestor.html">Registro Gestor</a>
+  </div>
+  <p>© 2025 PNK Inmobiliaria</p>
+</footer>
+
+<script>
+  function mostrar(id) {
+    document.getElementById('panel-login').style.display = 'none';
+    document.getElementById('panel-recuperar').style.display = 'none';
+    document.getElementById(id).style.display = 'block';
+  }
+</script>
+</body>
+</html>

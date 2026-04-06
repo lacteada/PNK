@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashboard Administrador - PNK Inmobiliaria">
+  <title>Dashboard — PNK Inmobiliaria</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav role="navigation" aria-label="Navegación principal">
+  <a href="index.html" class="logo">PNK <span>Inmobiliaria</span></a>
+  <div class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="usuarios.html">Usuarios</a>
+    <a href="propiedades.html">Propiedades</a>
+    <a href="login.html" class="btn btn-outline btn-sm">Cerrar Sesión</a>
+  </div>
+</nav>
+
+<main id="main-content">
+  <div class="dash-wrap">
+
+    <!-- Header usuario -->
+    <header class="dash-header" role="banner" aria-label="Información del usuario">
+      <div class="dash-user">
+        <div class="dash-avatar" aria-hidden="true">A</div>
+        <div>
+          <p style="font-size:.82rem;color:var(--muted)">Bienvenido</p>
+          <p style="font-weight:600">Administrador PNK</p>
+        </div>
+      </div>
+      <a href="login.html" class="btn btn-outline btn-sm" aria-label="Cerrar sesión y salir">Cerrar Sesión</a>
+    </header>
+
+    <!-- Stats rápidas -->
+    <section aria-labelledby="stats-title">
+      <h2 id="stats-title" class="section-title">Resumen</h2>
+      <div class="dash-cards">
+        <div class="dash-card" style="cursor:default">
+          <div class="icon" aria-hidden="true">🏠</div>
+          <h3>Propiedades</h3>
+          <p style="font-size:1.6rem;color:var(--text);font-weight:700">24</p>
+          <p>Activas en plataforma</p>
+        </div>
+        <div class="dash-card" style="cursor:default">
+          <div class="icon" aria-hidden="true">👤</div>
+          <h3>Propietarios</h3>
+          <p style="font-size:1.6rem;color:var(--text);font-weight:700">12</p>
+          <p>Cuentas activas</p>
+        </div>
+        <div class="dash-card" style="cursor:default">
+          <div class="icon" aria-hidden="true">🤝</div>
+          <h3>Gestores</h3>
+          <p style="font-size:1.6rem;color:var(--text);font-weight:700">8</p>
+          <p>Gestores activos</p>
+        </div>
+        <div class="dash-card" style="cursor:default">
+          <div class="icon" aria-hidden="true">⏳</div>
+          <h3>Pendientes</h3>
+          <p style="font-size:1.6rem;color:#e67e22;font-weight:700">3</p>
+          <p>Cuentas por aprobar</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Módulos principales -->
+    <section aria-labelledby="modulos-title">
+      <h2 id="modulos-title" class="section-title">Módulos de Gestión</h2>
+      <div class="dash-cards">
+        <a href="usuarios.html" class="dash-card" aria-label="Ir al mantenedor de usuarios">
+          <div class="icon" aria-hidden="true">👥</div>
+          <h3>Mantenedor de Usuarios</h3>
+          <p>Gestionar propietarios y gestores inmobiliarios</p>
+        </a>
+        <a href="propiedades.html" class="dash-card" aria-label="Ir al mantenedor de propiedades">
+          <div class="icon" aria-hidden="true">🏘️</div>
+          <h3>Mantenedor de Propiedades</h3>
+          <p>Publicar, editar y dar de baja inmuebles</p>
+        </a>
+        <a href="registro-propietario.html" class="dash-card" aria-label="Registrar nuevo propietario">
+          <div class="icon" aria-hidden="true">➕</div>
+          <h3>Nuevo Propietario</h3>
+          <p>Registrar un propietario manualmente</p>
+        </a>
+        <a href="registro-gestor.html" class="dash-card" aria-label="Habilitar nuevo gestor inmobiliario">
+          <div class="icon" aria-hidden="true">🏅</div>
+          <h3>Habilitar Gestor</h3>
+          <p>Agregar gestor inmobiliario a la plataforma</p>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer role="contentinfo">
+  <div class="foot-links">
+    <a href="index.html">Inicio</a>
+    <a href="usuarios.html">Usuarios</a>
+    <a href="propiedades.html">Propiedades</a>
+  </div>
+  <p>© 2025 PNK Inmobiliaria</p>
+</footer>
+
+</body>
+</html>
