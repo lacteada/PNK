@@ -28,12 +28,12 @@
         ℹ️ Tu cuenta quedará en estado <strong>pendiente</strong> hasta que el administrador verifique tus antecedentes.
       </div>
 
-      <form action="#" method="post" novalidate aria-label="Formulario de registro de propietario">
+      <form action="#" method="post" novalidate aria-label="Formulario de registro de propietario" id="form-propietario">
 
         <div class="form-row">
           <div class="form-group">
             <label for="rut">RUT <abbr title="Campo obligatorio">*</abbr></label>
-            <input type="text" id="rut" name="rut" placeholder="12.345.678-9" required aria-required="true" autocomplete="off">
+            <input type="text" id="rut" name="rut" placeholder="12.345.678-9" required aria-required="true" autocomplete="off" pattern="^\d{1,2}\.\d{3}\.\d{3}-[\dKk]$" title="Formato: 12.345.678-9">
           </div>
           <div class="form-group">
             <label for="sexo">Sexo <abbr title="Campo obligatorio">*</abbr></label>
@@ -48,17 +48,17 @@
 
         <div class="form-group">
           <label for="nombre">Nombre Completo <abbr title="Campo obligatorio">*</abbr></label>
-          <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellidos" required aria-required="true" autocomplete="name">
+          <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellidos" required aria-required="true" autocomplete="name" minlength="3" pattern="^[a-záéíóúñ\s]+$" title="Solo letras y espacios, mínimo 3 caracteres">
         </div>
 
         <div class="form-row">
           <div class="form-group">
             <label for="nacimiento">Fecha de Nacimiento <abbr title="Campo obligatorio">*</abbr></label>
-            <input type="date" id="nacimiento" name="nacimiento" required aria-required="true">
+            <input type="date" id="nacimiento" name="nacimiento" required aria-required="true" max="">
           </div>
           <div class="form-group">
             <label for="telefono">Teléfono Móvil <abbr title="Campo obligatorio">*</abbr></label>
-            <input type="tel" id="telefono" name="telefono" placeholder="+56 9 1234 5678" required aria-required="true" autocomplete="tel">
+            <input type="tel" id="telefono" name="telefono" placeholder="+56 9 1234 5678" required aria-required="true" autocomplete="tel" pattern="^\+56\s9\s\d{4}\s\d{4}$" title="Formato: +56 9 1234 5678">
           </div>
         </div>
 
@@ -70,7 +70,7 @@
         <div class="form-row">
           <div class="form-group">
             <label for="password">Contraseña <abbr title="Campo obligatorio">*</abbr></label>
-            <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" required aria-required="true" minlength="8" autocomplete="new-password">
+            <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" required aria-required="true" minlength="8" autocomplete="new-password" title="Mínimo 8 caracteres, incluye números y mayúsculas">
           </div>
           <div class="form-group">
             <label for="password2">Confirmar Contraseña <abbr title="Campo obligatorio">*</abbr></label>
@@ -80,7 +80,7 @@
 
         <div class="form-group">
           <label for="nro-bienes">N° Propiedad (Registro Bienes Raíces) <abbr title="Campo obligatorio">*</abbr></label>
-          <input type="text" id="nro-bienes" name="nro_bienes_raices" placeholder="Ej: BR-2024-00123" required aria-required="true">
+          <input type="text" id="nro-bienes" name="nro_bienes_raices" placeholder="Ej: BR-2024-00123" required aria-required="true" minlength="3">
         </div>
 
         <div class="form-group">
@@ -109,6 +109,45 @@
   </div>
   <p>© 2025 PNK Inmobiliaria</p>
 </footer>
+
+<script>
+  document.getElementById('form-propietario').addEventListener('submit', function(e) {
+    const form = e.target;
+    const password = document.getElementById('password').value;
+    const password2 = document.getElementById('password2').value;
+    const nacimiento = document.getElementById('nacimiento');
+    const edad = (new Date() - new Date(nacimiento.value)) / (365 * 24 * 60 * 60 * 1000);
+    
+    // Validar que las contraseñas coincidan
+    if (password !== password2) {
+      e.preventDefault();
+      alert('Las contraseñas no coinciden');
+      return;
+    }
+    
+    // Validar edad mínima (18 años)
+    if (edad < 18) {
+      e.preventDefault();
+      alert('Debes ser mayor de 18 años para registrarte');
+      return;
+    }
+    
+    // Validar que la contraseña tenga al menos un número y una mayúscula
+    if (!/\d/.test(password) || !/[A-Z]/.test(password)) {
+      e.preventDefault();
+      alert('La contraseña debe contener al menos un número y una letra mayúscula');
+      return;
+    }
+    
+    // Si todo es válido (en producción se enviaría al servidor)
+    e.preventDefault();
+    alert('Formulario validado correctamente. En producción se registraría la cuenta.');
+  });
+  
+  // Validar fecha máxima (no permite fechas futuras)
+  const hoy = new Date().toISOString().split('T')[0];
+  document.getElementById('nacimiento').max = hoy;
+</script>
 
 </body>
 </html>

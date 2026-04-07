@@ -55,6 +55,20 @@
         </thead>
         <tbody>
           <tr>
+            <td>00.000.000-0</td>
+            <td>Admin Sistema</td>
+            <td>Administrador</td>
+            <td>admin@pnk.com</td>
+            <td>+56 9 0000 0000</td>
+            <td><span class="badge badge-active">Activo</span></td>
+            <td>
+              <div class="actions">
+                <button class="btn btn-outline btn-sm" disabled aria-label="Usuario administrador no puede ser editado">Editar</button>
+                <button class="btn btn-danger btn-sm" disabled aria-label="El administrador no puede ser dado de baja">Baja</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
             <td>12.345.678-9</td>
             <td>Ana Martínez Pérez</td>
             <td>Propietario</td>
@@ -189,6 +203,14 @@
   function activarUsuario(nombre) {
     alert(`Cuenta de ${nombre} activada. Se ha enviado correo de notificación.`);
   }
+  function protegerAdmin() {
+    document.querySelectorAll('button[disabled]').forEach(btn => {
+      btn.style.opacity = '0.5';
+      btn.style.cursor = 'not-allowed';
+      btn.title = 'No se puede modificar cuentas de Administrador';
+    });
+  }
+  protegerAdmin();
   document.querySelectorAll('.modal-overlay').forEach(m => {
     m.addEventListener('click', e => { if(e.target === m) cerrarModal(m.id); });
   });

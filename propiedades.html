@@ -149,12 +149,13 @@
       <div class="form-row">
         <div class="form-group">
           <label for="provincia-p">Provincia <abbr title="Campo obligatorio">*</abbr></label>
-          <select id="provincia-p" required aria-required="true">
+          <select id="provincia-p" required aria-required="true" aria-describedby="provincia-hint">
             <option value="">Seleccionar</option>
             <option>Elqui</option>
             <option>Limarí</option>
             <option>Choapa</option>
           </select>
+          <small id="provincia-hint" style="color:var(--muted);font-size:.75rem">Se usará para geocodificar en Google Maps</small>
         </div>
         <div class="form-group">
           <label for="comuna-p">Comuna <abbr title="Campo obligatorio">*</abbr></label>
@@ -169,8 +170,8 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="sector-p">Sector</label>
-        <input type="text" id="sector-p" placeholder="Ej: El Milagro">
+        <label for="sector-p">Sector <abbr title="Campo obligatorio">*</abbr></label>
+        <input type="text" id="sector-p" placeholder="Ej: El Milagro" required aria-required="true">
       </div>
 
       <div class="form-row">
@@ -318,6 +319,55 @@
   function eliminarProp(cod) {
     if (confirm(`¿Eliminar propiedad ${cod}?`)) alert(`Propiedad ${cod} eliminada.`);
   }
+  
+  // Validación del formulario de nueva propiedad
+  const formNueva = document.querySelector('form[aria-label="Formulario para agregar nueva propiedad"]');
+  if (formNueva) {
+    formNueva.addEventListener('submit', function(e) {
+      const fotos = document.getElementById('fotos').files;
+      const precio = document.getElementById('precio-pesos').value;
+      const precioUF = document.getElementById('precio-uf').value;
+      
+      // Validar cantidad de fotos (1-10)
+      if (fotos.length < 1 || fotos.length > 10) {
+        e.preventDefault();
+        alert('Debes seleccionar entre 1 y 10 fotografías');
+        return;
+      }
+      
+      // Validar tamaño de archivos (máx 5MB cada una)
+      Array.from(fotos).forEach(file => {
+        if (file.size > 5 * 1024 * 1024) {
+          e.preventDefault();
+          alert(`El archivo ${file.name} excede 5 MB`);
+          return;
+        }
+      });
+      
+      // Validar precios
+      if (!precio || precio <= 0) {
+        e.preventDefault();
+        alert('Ingresa un precio válido en pesos');
+        return;
+      }
+      
+      if (!precioUF || precioUF <= 0) {
+        e.preventDefault();
+        alert('Ingresa un precio válido en UF');
+        return;
+      }
+      
+      // En integración futura: geocodificar ubicación con Google Maps API
+      // const provincia = document.getElementById('provincia-p').value;
+      // const comuna = document.getElementById('comuna-p').value;
+      // const sector = document.getElementById('sector-p').value;
+      // geocodificarPropiedad(provincia, comuna, sector);
+      
+      e.preventDefault();
+      alert('Propiedad validada. Cuando se integre el backend, se guardará en la base de datos.');
+    });
+  }
+  
   document.querySelectorAll('.modal-overlay').forEach(m => {
     m.addEventListener('click', e => { if(e.target === m) cerrarModal(m.id); });
   });

@@ -22,6 +22,13 @@
   <h1>Encuentra tu propiedad ideal</h1>
   <p>Casas, departamentos y terrenos en la Región de Coquimbo</p>
   <form class="buscador" role="search" aria-label="Buscar propiedades">
+    <label for="tipo" class="sr-only">Tipo de Propiedad</label>
+    <select id="tipo" name="tipo" aria-label="Seleccionar tipo de propiedad">
+      <option value="">Tipo</option>
+      <option>Casa</option>
+      <option>Departamento</option>
+      <option>Terreno</option>
+    </select>
     <label for="provincia" class="sr-only">Provincia</label>
     <select id="provincia" name="provincia" aria-label="Seleccionar provincia">
       <option value="">Provincia</option>
@@ -184,8 +191,9 @@
     </div>
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;height:140px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;margin-top:.75rem" role="img" aria-label="Mapa de ubicación">📍 Mapa — Centro, Coquimbo</div>
     <div class="social-share">
-      <a href="#" class="btn btn-outline btn-sm">WhatsApp</a>
-      <a href="#" class="btn btn-outline btn-sm">Facebook</a>
+      <a href="javascript:compartirWhatsApp('Centro, Coquimbo', 'D0238891', '$85.000.000')" class="btn btn-outline btn-sm" aria-label="Compartir en WhatsApp">WhatsApp</a>
+      <a href="javascript:compartirFacebook('Centro, Coquimbo', 'D0238891')" class="btn btn-outline btn-sm" aria-label="Compartir en Facebook">Facebook</a>
+      <a href="javascript:compartirTwitter('Centro, Coquimbo', 'D0238891')" class="btn btn-outline btn-sm" aria-label="Compartir en Twitter">Twitter</a>
     </div>
     <button class="btn btn-primary w-100 mt-2">Solicitar Visita</button>
   </div>
@@ -209,8 +217,9 @@
     <p style="color:var(--muted);font-size:.88rem;margin:.75rem 0">Terreno plano en excelente ubicación, apto para construcción residencial o comercial.</p>
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;height:140px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;margin-top:.75rem" role="img" aria-label="Mapa de ubicación">📍 Mapa — Centro, Ovalle</div>
     <div class="social-share">
-      <a href="#" class="btn btn-outline btn-sm">WhatsApp</a>
-      <a href="#" class="btn btn-outline btn-sm">Facebook</a>
+      <a href="javascript:compartirWhatsApp('Sector Centro, Ovalle', 'T0344120', '$42.000.000')" class="btn btn-outline btn-sm" aria-label="Compartir en WhatsApp">WhatsApp</a>
+      <a href="javascript:compartirFacebook('Sector Centro, Ovalle', 'T0344120')" class="btn btn-outline btn-sm" aria-label="Compartir en Facebook">Facebook</a>
+      <a href="javascript:compartirTwitter('Sector Centro, Ovalle', 'T0344120')" class="btn btn-outline btn-sm" aria-label="Compartir en Twitter">Twitter</a>
     </div>
     <button class="btn btn-primary w-100 mt-2">Solicitar Visita</button>
   </div>
@@ -238,6 +247,18 @@
   function cerrarModal(id) {
     document.getElementById(id).classList.remove('open');
     document.body.style.overflow = '';
+  }
+  function compartirWhatsApp(ubicacion, codigo, precio) {
+    const mensaje = `Hola, me interesa esta propiedad de PNK Inmobiliaria:%0A%0AUbicación: ${ubicacion}%0ACódigo: ${codigo}%0APrecio: ${precio}%0A%0A¿Más información?`;
+    window.open(`https://wa.me/?text=${mensaje}`, '_blank');
+  }
+  function compartirFacebook(ubicacion, codigo) {
+    const url = window.location.href;
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=Propiedad en ${ubicacion} - ${codigo}`, '_blank');
+  }
+  function compartirTwitter(ubicacion, codigo) {
+    const texto = `Encontré esta propiedad en PNK Inmobiliaria: ${ubicacion} (${codigo}) #Inmobiliario #Coquimbo`;
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(texto)}&url=${encodeURIComponent(window.location.href)}`, '_blank');
   }
   document.querySelectorAll('.modal-overlay').forEach(m => {
     m.addEventListener('click', e => { if(e.target === m) cerrarModal(m.id); });
