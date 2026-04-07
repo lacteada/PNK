@@ -26,7 +26,7 @@
       <h2 id="login-title">Bienvenido</h2>
       <p class="subtitle">Ingresa a tu cuenta para gestionar tus propiedades</p>
 
-      <form action="dashboard.html" method="get" novalidate aria-label="Formulario de inicio de sesión">
+      <form action="#" method="get" novalidate aria-label="Formulario de inicio de sesión" id="login-form">
         <div class="form-group">
           <label for="usuario">Correo Electrónico <abbr title="Campo obligatorio">*</abbr></label>
           <input type="email" id="usuario" name="usuario" placeholder="correo@ejemplo.com" required aria-required="true" autocomplete="email">
@@ -35,6 +35,17 @@
           <label for="password">Contraseña <abbr title="Campo obligatorio">*</abbr></label>
           <input type="password" id="password" name="password" placeholder="Tu contraseña" required aria-required="true" autocomplete="current-password">
         </div>
+
+        <!-- Selector de tipo de usuario para simular diferentes dashboards -->
+        <div class="form-group">
+          <label for="tipo-usuario">Tipo de Usuario</label>
+          <select id="tipo-usuario" name="tipo" aria-label="Seleccionar tipo de usuario">
+            <option value="admin">Administrador</option>
+            <option value="propietario">Propietario</option>
+            <option value="gestor">Gestor Inmobiliario</option>
+          </select>
+        </div>
+
         <button type="submit" class="btn btn-primary w-100" aria-label="Ingresar al sistema">Ingresar</button>
       </form>
 
@@ -85,11 +96,37 @@
 </footer>
 
 <script>
+  // Función para cambiar entre panel de login y recuperación
   function mostrar(id) {
     document.getElementById('panel-login').style.display = 'none';
     document.getElementById('panel-recuperar').style.display = 'none';
     document.getElementById(id).style.display = 'block';
   }
+
+  // Sistema de login que redirige según el tipo de usuario seleccionado
+  document.getElementById('login-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const usuario = document.getElementById('usuario').value;
+    const password = document.getElementById('password').value;
+    const tipoUsuario = document.getElementById('tipo-usuario').value;
+
+    // Verificar que se completaron los campos básicos
+    if (!usuario || !password) {
+      alert('Por favor completa todos los campos');
+      return;
+    }
+
+    // Simulación de autenticación - en producción esto validaría contra base de datos
+    // Por ahora simplemente redirigimos según el tipo seleccionado
+    if (tipoUsuario === 'admin') {
+      window.location.href = 'dashboard.html';  // Dashboard del administrador
+    } else if (tipoUsuario === 'propietario') {
+      window.location.href = 'dashboard-propietario.html';  // Dashboard del propietario
+    } else if (tipoUsuario === 'gestor') {
+      window.location.href = 'dashboard-gestor.html';  // Dashboard del gestor
+    }
+  });
 </script>
 </body>
 </html>

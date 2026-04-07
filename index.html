@@ -9,6 +9,7 @@
 </head>
 <body>
 
+<!-- Barra de navegación principal con acceso a registro e ingreso -->
 <nav role="navigation" aria-label="Navegación principal">
   <a href="index.html" class="logo" aria-label="PNK Inmobiliaria - Inicio">PNK <span>Inmobiliaria</span></a>
   <div class="nav-links">
@@ -18,10 +19,14 @@
   </div>
 </nav>
 
+<!-- Sección hero con título principal y buscador -->
 <header class="hero" role="banner">
   <h1>Encuentra tu propiedad ideal</h1>
   <p>Casas, departamentos y terrenos en la Región de Coquimbo</p>
+
+  <!-- Formulario de búsqueda principal con filtros geográficos -->
   <form class="buscador" role="search" aria-label="Buscar propiedades">
+    <!-- Filtro por tipo de propiedad -->
     <label for="tipo" class="sr-only">Tipo de Propiedad</label>
     <select id="tipo" name="tipo" aria-label="Seleccionar tipo de propiedad">
       <option value="">Tipo</option>
@@ -29,6 +34,8 @@
       <option>Departamento</option>
       <option>Terreno</option>
     </select>
+
+    <!-- Filtro por provincia -->
     <label for="provincia" class="sr-only">Provincia</label>
     <select id="provincia" name="provincia" aria-label="Seleccionar provincia">
       <option value="">Provincia</option>
@@ -36,6 +43,8 @@
       <option>Limarí</option>
       <option>Choapa</option>
     </select>
+
+    <!-- Filtro por comuna -->
     <label for="comuna" class="sr-only">Comuna</label>
     <select id="comuna" name="comuna" aria-label="Seleccionar comuna">
       <option value="">Comuna</option>
@@ -45,8 +54,12 @@
       <option>Illapel</option>
       <option>Vicuña</option>
     </select>
+
+    <!-- Campo de texto libre para sector específico -->
     <label for="sector" class="sr-only">Sector</label>
     <input id="sector" type="text" name="sector" placeholder="Sector (ej: El Milagro)" aria-label="Sector">
+
+    <!-- Botón de búsqueda -->
     <button type="submit" class="btn btn-primary" aria-label="Buscar propiedades">Buscar</button>
   </form>
 </header>
@@ -248,18 +261,29 @@
     document.getElementById(id).classList.remove('open');
     document.body.style.overflow = '';
   }
+  // Funciones para compartir propiedades en redes sociales
   function compartirWhatsApp(ubicacion, codigo, precio) {
+    // Crear mensaje personalizado para WhatsApp con detalles de la propiedad
     const mensaje = `Hola, me interesa esta propiedad de PNK Inmobiliaria:%0A%0AUbicación: ${ubicacion}%0ACódigo: ${codigo}%0APrecio: ${precio}%0A%0A¿Más información?`;
+    // Abrir WhatsApp Web con el mensaje preformateado
     window.open(`https://wa.me/?text=${mensaje}`, '_blank');
   }
+
   function compartirFacebook(ubicacion, codigo) {
+    // Obtener la URL actual de la página
     const url = window.location.href;
+    // Abrir Facebook Share con la URL y descripción de la propiedad
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=Propiedad en ${ubicacion} - ${codigo}`, '_blank');
   }
+
   function compartirTwitter(ubicacion, codigo) {
+    // Crear texto para tweet con hashtags relevantes
     const texto = `Encontré esta propiedad en PNK Inmobiliaria: ${ubicacion} (${codigo}) #Inmobiliario #Coquimbo`;
+    // Abrir Twitter con el texto y URL de la página
     window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(texto)}&url=${encodeURIComponent(window.location.href)}`, '_blank');
   }
+
+  // Cerrar modales al hacer clic fuera de ellos
   document.querySelectorAll('.modal-overlay').forEach(m => {
     m.addEventListener('click', e => { if(e.target === m) cerrarModal(m.id); });
   });

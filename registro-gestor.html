@@ -9,6 +9,7 @@
 </head>
 <body>
 
+<!-- Barra de navegación superior - igual en todas las páginas públicas -->
 <nav role="navigation" aria-label="Navegación principal">
   <a href="index.html" class="logo">PNK <span>Inmobiliaria</span></a>
   <div class="nav-links">
@@ -21,22 +22,28 @@
 <main id="main-content">
   <div class="form-page">
     <div class="form-box">
+      <!-- Título principal del formulario -->
       <h2>Gestor Inmobiliario Free</h2>
       <p class="subtitle">Genera ingresos adicionales gestionando propiedades en la plataforma</p>
 
+      <!-- Caja informativa que explica el proceso de aprobación -->
       <div class="alert alert-info" role="note" aria-live="polite">
         🏆 Si eres aceptado recibirás tu <strong>PENKA_ID</strong> y podrás comenzar a ofertar propiedades y ganar comisiones.
       </div>
 
+      <!-- Formulario principal de registro -->
       <form action="#" method="post" novalidate aria-label="Formulario de registro de gestor inmobiliario" id="form-gestor">
 
+        <!-- Primera fila: RUT y Sexo lado a lado -->
         <div class="form-row">
           <div class="form-group">
             <label for="rut">RUT <abbr title="Campo obligatorio">*</abbr></label>
+            <!-- Campo RUT con validación de formato chileno -->
             <input type="text" id="rut" name="rut" placeholder="12.345.678-9" required aria-required="true" autocomplete="off" pattern="^\d{1,2}\.\d{3}\.\d{3}-[\dKk]$" title="Formato: 12.345.678-9">
           </div>
           <div class="form-group">
             <label for="sexo">Sexo <abbr title="Campo obligatorio">*</abbr></label>
+            <!-- Selector de sexo con opciones inclusivas -->
             <select id="sexo" name="sexo" required aria-required="true">
               <option value="">Seleccionar</option>
               <option value="M">Masculino</option>
@@ -46,44 +53,57 @@
           </div>
         </div>
 
+        <!-- Campo de nombre completo -->
         <div class="form-group">
           <label for="nombre">Nombre Completo <abbr title="Campo obligatorio">*</abbr></label>
+          <!-- Solo permite letras, espacios y caracteres especiales chilenos -->
           <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellidos" required aria-required="true" autocomplete="name" minlength="3" pattern="^[a-záéíóúñ\s]+$" title="Solo letras y espacios, mínimo 3 caracteres">
         </div>
 
+        <!-- Segunda fila: Fecha nacimiento y teléfono -->
         <div class="form-row">
           <div class="form-group">
             <label for="nacimiento">Fecha de Nacimiento <abbr title="Campo obligatorio">*</abbr></label>
+            <!-- Fecha con límite automático para evitar fechas futuras -->
             <input type="date" id="nacimiento" name="nacimiento" required aria-required="true" max="">
           </div>
           <div class="form-group">
             <label for="telefono">Teléfono Móvil <abbr title="Campo obligatorio">*</abbr></label>
+            <!-- Formato específico para números chilenos -->
             <input type="tel" id="telefono" name="telefono" placeholder="+56 9 1234 5678" required aria-required="true" autocomplete="tel" pattern="^\+56\s9\s\d{4}\s\d{4}$" title="Formato: +56 9 1234 5678">
           </div>
         </div>
 
+        <!-- Correo electrónico -->
         <div class="form-group">
           <label for="correo">Correo Electrónico <abbr title="Campo obligatorio">*</abbr></label>
           <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required aria-required="true" autocomplete="email">
         </div>
 
+        <!-- Contraseñas lado a lado para comparación visual -->
         <div class="form-row">
           <div class="form-group">
             <label for="password">Contraseña <abbr title="Campo obligatorio">*</abbr></label>
+            <!-- Contraseña con requisitos de seguridad -->
             <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" required aria-required="true" minlength="8" autocomplete="new-password" title="Mínimo 8 caracteres, incluye números y mayúsculas">
           </div>
           <div class="form-group">
             <label for="password2">Confirmar Contraseña <abbr title="Campo obligatorio">*</abbr></label>
+            <!-- Campo para confirmar que las contraseñas coinciden -->
             <input type="password" id="password2" name="password2" placeholder="Repetir contraseña" required aria-required="true" autocomplete="new-password">
           </div>
         </div>
 
+        <!-- Certificado de antecedentes - documento obligatorio -->
         <div class="form-group">
           <label for="certificado">Certificado de Antecedentes <abbr title="Campo obligatorio">*</abbr></label>
+          <!-- Solo acepta formatos de imagen y PDF, con límite de tamaño -->
           <input type="file" id="certificado" name="certificado" accept=".pdf,.jpg,.png" required aria-required="true" aria-describedby="cert-hint">
+          <!-- Texto explicativo debajo del campo -->
           <small id="cert-hint" style="color:var(--muted);font-size:.78rem">Formatos aceptados: PDF, JPG, PNG. Máximo 5 MB.</small>
         </div>
 
+        <!-- Checkbox de aceptación de términos -->
         <div class="form-group">
           <div class="form-check">
             <input type="checkbox" id="terminos" name="terminos" required aria-required="true">
@@ -91,8 +111,10 @@
           </div>
         </div>
 
+        <!-- Botón principal del formulario -->
         <button type="submit" class="btn btn-primary w-100" aria-label="Enviar formulario de registro de gestor inmobiliario">Registrarme como Gestor Inmobiliario</button>
 
+        <!-- Enlaces al final del formulario -->
         <div class="form-footer">
           <a href="login.html">¿Ya tienes cuenta? Ingresar</a>
           <a href="registro-propietario.html">Registrarme como Propietario</a>
@@ -112,6 +134,7 @@
 </footer>
 
 <script>
+  // Configurar validaciones del formulario cuando se carga la página
   document.getElementById('form-gestor').addEventListener('submit', function(e) {
     const form = e.target;
     const password = document.getElementById('password').value;
@@ -120,28 +143,28 @@
     const certificado = document.getElementById('certificado');
     const edad = (new Date() - new Date(nacimiento.value)) / (365 * 24 * 60 * 60 * 1000);
     
-    // Validar que las contraseñas coincidan
+    // Primero chequear que las contraseñas sean iguales
     if (password !== password2) {
       e.preventDefault();
       alert('Las contraseñas no coinciden');
       return;
     }
     
-    // Validar edad mínima (18 años)
+    // Verificar que tenga al menos 18 años
     if (edad < 18) {
       e.preventDefault();
       alert('Debes ser mayor de 18 años para registrarte como gestor');
       return;
     }
     
-    // Validar que la contraseña tenga al menos un número y una mayúscula
+    // La contraseña debe ser segura (número + mayúscula)
     if (!/\d/.test(password) || !/[A-Z]/.test(password)) {
       e.preventDefault();
       alert('La contraseña debe contener al menos un número y una letra mayúscula');
       return;
     }
     
-    // Validar tamaño del certificado (máx 5MB)
+    // El certificado no puede ser muy grande
     if (certificado.files.length > 0) {
       const maxSize = 5 * 1024 * 1024; // 5MB en bytes
       if (certificado.files[0].size > maxSize) {
@@ -151,12 +174,13 @@
       }
     }
     
-    // Si todo es válido (en producción se enviaría al servidor)
+    // Si todo está bien, mostrar mensaje de éxito
+    // En un sitio real aquí se enviaría a un servidor
     e.preventDefault();
     alert('Formulario validado correctamente. Tu solicitud será revisada por el administrador.\nRecibirás un correo cuando se asigne tu PENKA_ID.');
   });
   
-  // Validar fecha máxima (no permite fechas futuras)
+  // Evitar que pongan fechas futuras en la fecha de nacimiento
   const hoy = new Date().toISOString().split('T')[0];
   document.getElementById('nacimiento').max = hoy;
 </script>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashboard Gestor - PNK Inmobiliaria">
+  <title>Dashboard Gestor — PNK Inmobiliaria</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Barra de navegación para gestores -->
+<nav role="navigation" aria-label="Navegación principal">
+  <a href="index.html" class="logo">PNK <span>Inmobiliaria</span></a>
+  <div class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="dashboard-gestor.html">Mi Panel</a>
+    <a href="login.html" class="btn btn-outline btn-sm">Cerrar Sesión</a>
+  </div>
+</nav>
+
+<main id="main-content">
+  <div class="dash-wrap">
+
+    <!-- Header con info del gestor -->
+    <header class="dash-header" role="banner" aria-label="Información del gestor">
+      <div class="dash-user">
+        <div class="dash-avatar" aria-hidden="true">G</div>
+        <div>
+          <p style="font-size:.82rem;color:var(--muted)">PENKA_ID: <strong>PNK-2024-001</strong></p>
+          <p style="font-weight:600">Gestor Inmobiliario</p>
+        </div>
+      </div>
+      <a href="login.html" class="btn btn-outline btn-sm" aria-label="Cerrar sesión y salir">Cerrar Sesión</a>
+    </header>
+
+    <!-- Estadísticas del gestor -->
+    <section aria-labelledby="stats-title">
+      <h2 id="stats-title" class="section-title">Mi Rendimiento</h2>
+      <div class="dash-cards">
+        <div class="dash-card" style="cursor:default">
+          <div class="icon" aria-hidden="true">🎯</div>
+          <h3>Captaciones</h3>
+          <p style="font-size:1.6rem;color:var(--text);font-weight:700">8</p>
+          <p>Propiedades este mes</p>
+        </div>
+        <div class="dash-card" style="cursor:default">
+          <div class="icon" aria-hidden="true">💰</div>
+          <h3>Comisiones</h3>
+          <p style="font-size:1.6rem;color:var(--text);font-weight:700">$2.4M</p>
+          <p>Ganancias generadas</p>
+        </div>
+        <div class="dash-card" style="cursor:default">
+          <div class="icon" aria-hidden="true">⭐</div>
+          <h3>Calificación</h3>
+          <p style="font-size:1.6rem;color:var(--text);font-weight:700">4.8</p>
+          <p>Promedio de reseñas</p>
+        </div>
+        <div class="dash-card" style="cursor:default">
+          <div class="icon" aria-hidden="true">📈</div>
+          <h3>Ranking</h3>
+          <p style="font-size:1.6rem;color:#27ae60;font-weight:700">#3</p>
+          <p>Entre gestores activos</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Acciones principales del gestor -->
+    <section aria-labelledby="acciones-title">
+      <h2 id="acciones-title" class="section-title">Herramientas de Trabajo</h2>
+      <div class="dash-cards">
+        <a href="buscar-propiedades.html" class="dash-card" aria-label="Buscar propiedades disponibles">
+          <div class="icon" aria-hidden="true">🔍</div>
+          <h3>Buscar Propiedades</h3>
+          <p>Encuentra inmuebles para ofrecer a tus clientes</p>
+        </a>
+        <a href="mis-captaciones.html" class="dash-card" aria-label="Ver mis captaciones">
+          <div class="icon" aria-hidden="true">📋</div>
+          <h3>Mis Captaciones</h3>
+          <p>Administra tus propiedades en proceso</p>
+        </a>
+        <a href="clientes-gestor.html" class="dash-card" aria-label="Gestionar mis clientes">
+          <div class="icon" aria-hidden="true">👥</div>
+          <h3>Mis Clientes</h3>
+          <p>Base de datos de compradores interesados</p>
+        </a>
+        <a href="reportes-gestor.html" class="dash-card" aria-label="Ver mis reportes de comisiones">
+          <div class="icon" aria-hidden="true">📊</div>
+          <h3>Reportes</h3>
+          <p>Comisiones, estadísticas y rendimiento</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Propiedades destacadas disponibles -->
+    <section aria-labelledby="disponibles-title">
+      <h2 id="disponibles-title" class="section-title">Propiedades Disponibles</h2>
+      <div class="grid-3">
+        <!-- Propiedad disponible 1 -->
+        <div class="prop-card">
+          <div class="prop-img-placeholder" style="background: linear-gradient(135deg, #c8a96e, #e8c98a);">
+            🏠
+          </div>
+          <div class="prop-body">
+            <div class="prop-badge">Casa</div>
+            <p class="prop-code">Cód: C0123498</p>
+            <h3 class="prop-title">Casa Vicuña - 3 dorms</h3>
+            <p class="prop-price">$95.000.000 <small>UF 2.750</small></p>
+            <div style="margin-top:0.5rem">
+              <span class="badge badge-active">Disponible</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Propiedad disponible 2 -->
+        <div class="prop-card">
+          <div class="prop-img-placeholder" style="background: linear-gradient(135deg, #8a8070, #c8a96e);">
+            🏢
+          </div>
+          <div class="prop-body">
+            <div class="prop-badge">Departamento</div>
+            <p class="prop-code">Cód: C0123499</p>
+            <h3 class="prop-title">Depto. La Serena Centro</h3>
+            <p class="prop-price">$55.000.000 <small>UF 1.600</small></p>
+            <div style="margin-top:0.5rem">
+              <span class="badge badge-active">Disponible</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Propiedad disponible 3 -->
+        <div class="prop-card">
+          <div class="prop-img-placeholder" style="background: linear-gradient(135deg, #2e2b27, #8a8070);">
+            🌾
+          </div>
+          <div class="prop-body">
+            <div class="prop-badge">Terreno</div>
+            <p class="prop-code">Cód: C0123500</p>
+            <h3 class="prop-title">Terreno Industrial Ovalle</h3>
+            <p class="prop-price">$180.000.000 <small>UF 5.200</small></p>
+            <div style="margin-top:0.5rem">
+              <span class="badge badge-pending">En proceso</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer role="contentinfo">
+  <div class="foot-links">
+    <a href="index.html">Inicio</a>
+    <a href="dashboard-gestor.html">Mi Panel</a>
+    <a href="login.html">Cerrar Sesión</a>
+  </div>
+  <p>© 2025 PNK Inmobiliaria</p>
+</footer>
+
+</body>
+</html>

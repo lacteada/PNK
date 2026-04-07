@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dashboard Propietario - PNK Inmobiliaria">
+  <title>Dashboard Propietario — PNK Inmobiliaria</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Barra de navegación para propietarios -->
+<nav role="navigation" aria-label="Navegación principal">
+  <a href="index.html" class="logo">PNK <span>Inmobiliaria</span></a>
+  <div class="nav-links">
+    <a href="index.html">Inicio</a>
+    <a href="dashboard-propietario.html">Mis Propiedades</a>
+    <a href="login.html" class="btn btn-outline btn-sm">Cerrar Sesión</a>
+  </div>
+</nav>
+
+<main id="main-content">
+  <div class="dash-wrap">
+
+    <!-- Header con info del propietario -->
+    <header class="dash-header" role="banner" aria-label="Información del propietario">
+      <div class="dash-user">
+        <div class="dash-avatar" aria-hidden="true">P</div>
+        <div>
+          <p style="font-size:.82rem;color:var(--muted)">Bienvenido</p>
+          <p style="font-weight:600">Propietario PNK</p>
+        </div>
+      </div>
+      <a href="login.html" class="btn btn-outline btn-sm" aria-label="Cerrar sesión y salir">Cerrar Sesión</a>
+    </header>
+
+    <!-- Estadísticas rápidas del propietario -->
+    <section aria-labelledby="stats-title">
+      <h2 id="stats-title" class="section-title">Mis Propiedades</h2>
+      <div class="dash-cards">
+        <div class="dash-card" style="cursor:default">
+          <div class="icon" aria-hidden="true">🏠</div>
+          <h3>Publicadas</h3>
+          <p style="font-size:1.6rem;color:var(--text);font-weight:700">3</p>
+          <p>Propiedades activas</p>
+        </div>
+        <div class="dash-card" style="cursor:default">
+          <div class="icon" aria-hidden="true">👁️</div>
+          <h3>Visitas</h3>
+          <p style="font-size:1.6rem;color:var(--text);font-weight:700">24</p>
+          <p>Solicitudes este mes</p>
+        </div>
+        <div class="dash-card" style="cursor:default">
+          <div class="icon" aria-hidden="true">💰</div>
+          <h3>Ingresos</h3>
+          <p style="font-size:1.6rem;color:var(--text);font-weight:700">$150K</p>
+          <p>Comisiones generadas</p>
+        </div>
+        <div class="dash-card" style="cursor:default">
+          <div class="icon" aria-hidden="true">⏳</div>
+          <h3>Pendientes</h3>
+          <p style="font-size:1.6rem;color:#e67e22;font-weight:700">1</p>
+          <p>Propiedad por aprobar</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Acciones principales del propietario -->
+    <section aria-labelledby="acciones-title">
+      <h2 id="acciones-title" class="section-title">Gestión de Propiedades</h2>
+      <div class="dash-cards">
+        <a href="registro-propiedad.html" class="dash-card" aria-label="Publicar nueva propiedad">
+          <div class="icon" aria-hidden="true">➕</div>
+          <h3>Publicar Propiedad</h3>
+          <p>Agrega una nueva propiedad a la plataforma</p>
+        </a>
+        <a href="mis-propiedades.html" class="dash-card" aria-label="Ver mis propiedades publicadas">
+          <div class="icon" aria-hidden="true">📋</div>
+          <h3>Mis Propiedades</h3>
+          <p>Administra tus inmuebles publicados</p>
+        </a>
+        <a href="solicitudes-visita.html" class="dash-card" aria-label="Ver solicitudes de visita">
+          <div class="icon" aria-hidden="true">📅</div>
+          <h3>Solicitudes de Visita</h3>
+          <p>Revisa y responde consultas de interesados</p>
+        </a>
+        <a href="reportes-propietario.html" class="dash-card" aria-label="Ver reportes y estadísticas">
+          <div class="icon" aria-hidden="true">📊</div>
+          <h3>Reportes</h3>
+          <p>Estadísticas de rendimiento de tus propiedades</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Propiedades destacadas recientes -->
+    <section aria-labelledby="recientes-title">
+      <h2 id="recientes-title" class="section-title">Propiedades Recientes</h2>
+      <div class="grid-3">
+        <!-- Propiedad de ejemplo 1 -->
+        <div class="prop-card">
+          <div class="prop-img-placeholder" style="background: linear-gradient(135deg, #e8c98a, #c8a96e);">
+            📸
+          </div>
+          <div class="prop-body">
+            <div class="prop-badge">Casa</div>
+            <p class="prop-code">Cód: C0123456</p>
+            <h3 class="prop-title">Casa en La Serena</h3>
+            <p class="prop-price">$85.000.000 <small>UF 2.450</small></p>
+          </div>
+        </div>
+
+        <!-- Propiedad de ejemplo 2 -->
+        <div class="prop-card">
+          <div class="prop-img-placeholder" style="background: linear-gradient(135deg, #c8a96e, #8a8070);">
+            🏢
+          </div>
+          <div class="prop-body">
+            <div class="prop-badge">Departamento</div>
+            <p class="prop-code">Cód: C0123457</p>
+            <h3 class="prop-title">Depto. Centro Coquimbo</h3>
+            <p class="prop-price">$45.000.000 <small>UF 1.300</small></p>
+          </div>
+        </div>
+
+        <!-- Propiedad de ejemplo 3 -->
+        <div class="prop-card">
+          <div class="prop-img-placeholder" style="background: linear-gradient(135deg, #8a8070, #2e2b27);">
+            🌳
+          </div>
+          <div class="prop-body">
+            <div class="prop-badge">Terreno</div>
+            <p class="prop-code">Cód: C0123458</p>
+            <h3 class="prop-title">Terreno Ovalle</h3>
+            <p class="prop-price">$120.000.000 <small>UF 3.500</small></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer role="contentinfo">
+  <div class="foot-links">
+    <a href="index.html">Inicio</a>
+    <a href="dashboard-propietario.html">Mis Propiedades</a>
+    <a href="login.html">Cerrar Sesión</a>
+  </div>
+  <p>© 2025 PNK Inmobiliaria</p>
+</footer>
+
+</body>
+</html>

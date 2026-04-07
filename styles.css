@@ -25,7 +25,79 @@ body {
   min-height: 100vh;
 }
 
-/* NAV */
+/* ===========================================
+   PNK INMOBILIARIA - HOJA DE ESTILOS OPTIMIZADA
+   ===========================================
+
+   Tema: Diseño elegante con paleta oscura
+   Tipografía: Playfair Display (títulos) + DM Sans (cuerpo)
+   Colores: Gradientes dorados sobre fondo oscuro
+   =========================================== */
+
+/* ========== IMPORTACIONES Y VARIABLES ========== */
+
+/* Importar fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* Variables CSS para colores y medidas consistentes */
+:root {
+  /* Colores principales */
+  --bg: #0f0e0d;           /* Fondo principal oscuro */
+  --surface: #1a1917;      /* Superficies elevadas */
+  --card: #221f1c;         /* Tarjetas y contenedores */
+  --accent: #c8a96e;       /* Dorado principal (enlaces, botones) */
+  --accent2: #e8c98a;      /* Dorado claro (hover, destacados) */
+
+  /* Colores de texto */
+  --text: #f0ece4;         /* Texto principal */
+  --muted: #8a8070;        /* Texto secundario */
+
+  /* Colores semánticos */
+  --danger: #c0392b;       /* Rojo para errores/borrar */
+  --success: #27ae60;      /* Verde para éxito/aprobado */
+
+  /* Bordes y radios */
+  --border: #2e2b27;       /* Bordes sutiles */
+  --radius: 10px;          /* Radio de esquinas */
+}
+
+/* ========== RESET Y BASE ========== */
+
+/* Reset universal para consistencia */
+*, *::before, *::after {
+  box-sizing: border-box;  /* Incluye padding/border en ancho */
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos base del documento */
+body {
+  font-family: 'DM Sans', sans-serif;  /* Fuente sans-serif moderna */
+  background: var(--bg);               /* Fondo oscuro principal */
+  color: var(--text);                  /* Texto claro por defecto */
+  font-size: 15px;                     /* Tamaño base legible */
+  line-height: 1.6;                    /* Espaciado de línea cómodo */
+  min-height: 100vh;                   /* Altura mínima de viewport */
+}
+
+/* ========== UTILIDADES GENERALES ========== */
+
+/* Clases de utilidad para márgenes */
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+
+/* Clases de utilidad para texto */
+.text-muted { color: var(--muted); }
+.text-accent { color: var(--accent); }
+.text-center { text-align: center; }
+
+/* Clase de utilidad para ancho completo */
+.w-100 { width: 100%; }
+
+/* ========== NAVEGACIÓN ========== */
+
+/* Barra de navegación principal */
 nav {
   display: flex;
   align-items: center;
@@ -33,33 +105,53 @@ nav {
   padding: 1rem 2rem;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
-  position: sticky;
+  position: sticky;        /* Se mantiene visible al hacer scroll */
   top: 0;
-  z-index: 100;
-  flex-wrap: wrap;
-  gap: .5rem;
+  z-index: 100;           /* Siempre encima de otros elementos */
+  flex-wrap: wrap;        /* Se adapta en móviles */
+  gap: 0.5rem;
 }
+
+/* Logo de la marca */
 .logo {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif;  /* Fuente serif elegante */
   font-size: 1.4rem;
   color: var(--accent);
   text-decoration: none;
-  letter-spacing: 1px;
+  letter-spacing: 1px;    /* Espaciado sutil entre letras */
 }
-.logo span { color: var(--text); }
+
+.logo span {
+  color: var(--text);      /* Parte "Inmobiliaria" en blanco */
+}
+
+/* Enlaces de navegación */
 nav a {
   color: var(--muted);
   text-decoration: none;
-  font-size: .85rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  padding: .35rem .75rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 6px;
-  transition: all .2s;
+  transition: all 0.2s;    /* Transición suave */
 }
-nav a:hover, nav a.active { color: var(--accent); background: rgba(200,169,110,.1); }
-.nav-links { display: flex; gap: .25rem; flex-wrap: wrap; }
 
-/* HERO */
+nav a:hover,
+nav a.active {
+  color: var(--accent);
+  background: rgba(200, 169, 110, 0.1);  /* Fondo sutil dorado */
+}
+
+/* Contenedor de enlaces de navegación */
+.nav-links {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+/* ========== HERO / CABECERA ========== */
+
+/* Sección hero principal */
 .hero {
   background: linear-gradient(135deg, #1a1610 0%, #0f0e0d 60%);
   border-bottom: 1px solid var(--border);
@@ -68,129 +160,250 @@ nav a:hover, nav a.active { color: var(--accent); background: rgba(200,169,110,.
   position: relative;
   overflow: hidden;
 }
+
+/* Elemento decorativo de fondo */
 .hero::before {
   content: '';
   position: absolute;
-  top: -80px; right: -80px;
-  width: 350px; height: 350px;
-  background: radial-gradient(circle, rgba(200,169,110,.15), transparent 70%);
-  pointer-events: none;
+  top: -80px;
+  right: -80px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(200, 169, 110, 0.15), transparent 70%);
+  pointer-events: none;    /* No interfiere con clics */
 }
+
+/* Título principal del hero */
 .hero h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-size: clamp(2rem, 5vw, 3.2rem);  /* Responsive fluido */
   color: var(--accent);
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
-.hero p { color: var(--muted); max-width: 500px; margin: 0 auto 1.5rem; }
 
-/* BUSCADOR */
+/* Subtítulo del hero */
+.hero p {
+  color: var(--muted);
+  max-width: 500px;
+  margin: 0 auto 1.5rem;
+}
+
+/* ========== BUSCADOR ========== */
+
+/* Contenedor del formulario de búsqueda */
 .buscador {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.25rem;
   display: flex;
-  gap: .75rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 700px;
   margin: 0 auto;
 }
-.buscador select, .buscador input {
+
+/* Campos del buscador */
+.buscador select,
+.buscador input {
   flex: 1;
   min-width: 140px;
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--text);
-  padding: .6rem .9rem;
+  padding: 0.6rem 0.9rem;
   border-radius: 6px;
   font-family: inherit;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
-.buscador select:focus, .buscador input:focus { outline: none; border-color: var(--accent); }
 
-/* BOTONES */
+/* Estado focus de campos */
+.buscador select:focus,
+.buscador input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* ========== BOTONES ========== */
+
+/* Clase base para botones */
 .btn {
   display: inline-block;
-  padding: .6rem 1.4rem;
+  padding: 0.6rem 1.4rem;
   border-radius: 6px;
   border: none;
   cursor: pointer;
   font-family: inherit;
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-weight: 500;
   text-decoration: none;
-  transition: all .2s;
+  transition: all 0.2s;
 }
-.btn-primary { background: var(--accent); color: #0f0e0d; }
-.btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
-.btn-outline { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
-.btn-outline:hover { background: rgba(200,169,110,.1); }
-.btn-danger { background: var(--danger); color: #fff; }
-.btn-success { background: var(--success); color: #fff; }
-.btn-sm { padding: .35rem .9rem; font-size: .8rem; }
 
-/* GRID PROPIEDADES */
-.section { padding: 2.5rem 2rem; max-width: 1200px; margin: 0 auto; }
+/* Botón primario (dorado) */
+.btn-primary {
+  background: var(--accent);
+  color: #0f0e0d;          /* Texto oscuro sobre fondo dorado */
+}
+
+.btn-primary:hover {
+  background: var(--accent2);
+  transform: translateY(-1px);  /* Efecto de elevación */
+}
+
+/* Botón outline (borde dorado) */
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.btn-outline:hover {
+  background: rgba(200, 169, 110, 0.1);
+}
+
+/* Botones semánticos */
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.btn-success {
+  background: var(--success);
+  color: #fff;
+}
+
+/* Botón pequeño */
+.btn-sm {
+  padding: 0.35rem 0.9rem;
+  font-size: 0.8rem;
+}
+
+/* ========== SECCIONES Y GRID ========== */
+
+/* Sección genérica */
+.section {
+  padding: 2.5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Título de sección */
 .section-title {
   font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
   color: var(--accent);
   margin-bottom: 1.5rem;
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border);
 }
-.grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
 
-/* CARD PROPIEDAD */
+/* Grid de 3 columnas responsive */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ========== TARJETAS DE PROPIEDADES ========== */
+
+/* Tarjeta de propiedad */
 .prop-card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: transform .2s, box-shadow .2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-.prop-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,.4); }
+
+.prop-card:hover {
+  transform: translateY(-4px);    /* Elevación al hover */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Imagen de propiedad */
 .prop-card img {
-  width: 100%; height: 180px;
+  width: 100%;
+  height: 180px;
   object-fit: cover;
   background: var(--border);
   display: block;
 }
+
+/* Placeholder de imagen */
 .prop-img-placeholder {
-  width: 100%; height: 180px;
+  width: 100%;
+  height: 180px;
   background: linear-gradient(135deg, #221f1c, #2e2b27);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--muted); font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 2.5rem;
 }
-.prop-body { padding: 1rem; }
+
+/* Cuerpo de la tarjeta */
+.prop-body {
+  padding: 1rem;
+}
+
+/* Badge de tipo de propiedad */
 .prop-badge {
   display: inline-block;
-  background: rgba(200,169,110,.15);
+  background: rgba(200, 169, 110, 0.15);
   color: var(--accent);
-  font-size: .75rem;
-  padding: .2rem .6rem;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 4px;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   font-weight: 500;
 }
-.prop-code { color: var(--muted); font-size: .78rem; margin-bottom: .25rem; }
-.prop-title { font-weight: 500; margin-bottom: .25rem; }
-.prop-price { color: var(--accent); font-size: 1.1rem; font-weight: 600; margin-bottom: .75rem; }
-.prop-price small { color: var(--muted); font-size: .8rem; font-weight: 400; }
 
-/* MODAL */
+/* Elementos de texto en tarjeta */
+.prop-code {
+  color: var(--muted);
+  font-size: 0.78rem;
+  margin-bottom: 0.25rem;
+}
+
+.prop-title {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.prop-price {
+  color: var(--accent);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.prop-price small {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+/* ========== MODALES ========== */
+
+/* Overlay del modal */
 .modal-overlay {
   display: none;
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,.75);
+  position: fixed;
+  inset: 0;                /* Cubre toda la pantalla */
+  background: rgba(0, 0, 0, 0.75);
   z-index: 200;
   align-items: center;
   justify-content: center;
   padding: 1rem;
 }
-.modal-overlay.open { display: flex; }
+
+.modal-overlay.open {
+  display: flex;
+}
+
+/* Contenido del modal */
 .modal {
   background: var(--card);
   border: 1px solid var(--border);
@@ -202,27 +415,68 @@ nav a:hover, nav a.active { color: var(--accent); background: rgba(200,169,110,.
   overflow-y: auto;
   position: relative;
 }
-.modal-close {
-  position: absolute; top: 1rem; right: 1rem;
-  background: none; border: none; color: var(--muted);
-  font-size: 1.4rem; cursor: pointer;
-}
-.modal-close:hover { color: var(--text); }
-.prop-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem 1.5rem; margin: 1rem 0; }
-.prop-details-grid span { color: var(--muted); font-size: .85rem; }
-.prop-details-grid strong { color: var(--text); }
-.amenidades { display: flex; flex-wrap: wrap; gap: .5rem; margin: .75rem 0; }
-.amenidad {
-  background: rgba(39,174,96,.1);
-  color: var(--success);
-  border: 1px solid rgba(39,174,96,.3);
-  border-radius: 4px;
-  padding: .2rem .6rem;
-  font-size: .78rem;
-}
-.social-share { display: flex; gap: .5rem; margin-top: 1rem; flex-wrap: wrap; }
 
-/* FORMULARIOS */
+/* Botón cerrar modal */
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: var(--text);
+}
+
+/* Grid de detalles de propiedad */
+.prop-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1.5rem;
+  margin: 1rem 0;
+}
+
+.prop-details-grid span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.prop-details-grid strong {
+  color: var(--text);
+}
+
+/* Lista de amenidades */
+.amenidades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+.amenidad {
+  background: rgba(39, 174, 96, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(39, 174, 96, 0.3);
+  border-radius: 4px;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.78rem;
+}
+
+/* Compartir en redes sociales */
+.social-share {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ========== FORMULARIOS ========== */
+
+/* Página de formulario */
 .form-page {
   min-height: 100vh;
   display: flex;
@@ -231,6 +485,8 @@ nav a:hover, nav a.active { color: var(--accent); background: rgba(200,169,110,.
   padding: 2rem;
   background: var(--bg);
 }
+
+/* Caja del formulario */
 .form-box {
   background: var(--card);
   border: 1px solid var(--border);
@@ -239,48 +495,121 @@ nav a:hover, nav a.active { color: var(--accent); background: rgba(200,169,110,.
   width: 100%;
   max-width: 520px;
 }
+
+/* Título del formulario */
 .form-box h2 {
   font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
   color: var(--accent);
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
-.form-box p.subtitle { color: var(--muted); font-size: .85rem; margin-bottom: 1.75rem; }
 
-.form-group { margin-bottom: 1.1rem; }
+/* Subtítulo del formulario */
+.form-box p.subtitle {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 1.75rem;
+}
+
+/* Grupo de formulario */
+.form-group {
+  margin-bottom: 1.1rem;
+}
+
+/* Etiquetas */
 label {
   display: block;
-  font-size: .82rem;
+  font-size: 0.82rem;
   color: var(--muted);
-  margin-bottom: .35rem;
+  margin-bottom: 0.35rem;
   font-weight: 500;
 }
-input, select, textarea {
+
+/* Campos de formulario */
+input,
+select,
+textarea {
   width: 100%;
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--text);
-  padding: .65rem .9rem;
+  padding: 0.65rem 0.9rem;
   border-radius: 6px;
   font-family: inherit;
-  font-size: .9rem;
-  transition: border-color .2s;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
 }
-input:focus, select:focus, textarea:focus {
+
+/* Estado focus */
+input:focus,
+select:focus,
+textarea:focus {
   outline: none;
   border-color: var(--accent);
 }
-textarea { resize: vertical; min-height: 80px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-check { display: flex; align-items: center; gap: .5rem; }
-.form-check input { width: auto; }
-.form-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin: .5rem 0; }
-.form-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; flex-wrap: wrap; gap: .5rem; }
-.form-footer a { color: var(--accent); font-size: .85rem; text-decoration: none; }
-.form-footer a:hover { text-decoration: underline; }
 
-/* DASHBOARD */
-.dash-wrap { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+/* Textarea específico */
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Fila de formulario (2 columnas) */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Checkbox */
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-check input {
+  width: auto;
+}
+
+/* Grid de 3 columnas para checkboxes */
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin: 0.5rem 0;
+}
+
+/* Footer del formulario */
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.form-footer a {
+  color: var(--accent);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ========== DASHBOARD ========== */
+
+/* Contenedor del dashboard */
+.dash-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header del dashboard */
 .dash-header {
   display: flex;
   justify-content: space-between;
@@ -291,17 +620,39 @@ textarea { resize: vertical; min-height: 80px; }
   border-radius: var(--radius);
   margin-bottom: 2rem;
   flex-wrap: wrap;
-  gap: .75rem;
+  gap: 0.75rem;
 }
-.dash-user { display: flex; align-items: center; gap: .75rem; }
+
+/* Información del usuario */
+.dash-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Avatar del usuario */
 .dash-avatar {
-  width: 40px; height: 40px;
+  width: 40px;
+  height: 40px;
   background: var(--accent);
   border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  color: #0f0e0d; font-weight: 700; font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f0e0d;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
-.dash-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
+
+/* Grid de tarjetas del dashboard */
+.dash-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* Tarjeta del dashboard */
 .dash-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -310,92 +661,275 @@ textarea { resize: vertical; min-height: 80px; }
   text-align: center;
   text-decoration: none;
   color: var(--text);
-  transition: all .2s;
+  transition: all 0.2s;
   display: block;
 }
-.dash-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-.dash-card .icon { font-size: 2.2rem; margin-bottom: .75rem; }
-.dash-card h3 { font-size: .95rem; color: var(--accent); margin-bottom: .25rem; }
-.dash-card p { font-size: .8rem; color: var(--muted); }
 
-/* TABLA CRUD */
-.crud-wrap { max-width: 1100px; margin: 0 auto; padding: 2rem; }
-.crud-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
-.crud-header h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--accent); }
-.search-bar {
-  display: flex; gap: .5rem; align-items: center; flex-wrap: wrap;
+.dash-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
 }
-.search-bar input { width: 220px; }
 
-table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
-thead { background: var(--surface); }
-th { padding: .85rem 1rem; text-align: left; font-size: .8rem; color: var(--muted); font-weight: 500; border-bottom: 1px solid var(--border); }
-td { padding: .8rem 1rem; font-size: .88rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
-tr:last-child td { border-bottom: none; }
-tr:hover td { background: rgba(200,169,110,.04); }
+.dash-card .icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.dash-card h3 {
+  font-size: 0.95rem;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.dash-card p {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ========== TABLAS CRUD ========== */
+
+/* Contenedor de CRUD */
+.crud-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header de CRUD */
+.crud-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.crud-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+/* Barra de búsqueda */
+.search-bar {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-bar input {
+  width: 220px;
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+/* Header de tabla */
+thead {
+  background: var(--surface);
+}
+
+/* Celdas de tabla */
+th {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
+}
+
+td {
+  padding: 0.8rem 1rem;
+  font-size: 0.88rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+/* Última fila sin borde inferior */
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Hover de filas */
+tr:hover td {
+  background: rgba(200, 169, 110, 0.04);
+}
+
+/* Badges de estado */
 .badge {
   display: inline-block;
-  padding: .2rem .6rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 4px;
-  font-size: .75rem;
+  font-size: 0.75rem;
   font-weight: 500;
 }
-.badge-pending { background: rgba(230,126,34,.15); color: #e67e22; }
-.badge-active { background: rgba(39,174,96,.15); color: var(--success); }
-.badge-inactive { background: rgba(192,57,43,.15); color: var(--danger); }
-.actions { display: flex; gap: .35rem; }
 
-/* FOOTER */
+.badge-pending {
+  background: rgba(230, 126, 34, 0.15);
+  color: #e67e22;
+}
+
+.badge-active {
+  background: rgba(39, 174, 96, 0.15);
+  color: var(--success);
+}
+
+.badge-inactive {
+  background: rgba(192, 57, 43, 0.15);
+  color: var(--danger);
+}
+
+/* Acciones de tabla */
+.actions {
+  display: flex;
+  gap: 0.35rem;
+}
+
+/* ========== ALERTAS ========== */
+
+/* Alerta genérica */
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  margin-bottom: 1rem;
+}
+
+/* Alerta informativa */
+.alert-info {
+  background: rgba(200, 169, 110, 0.1);
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  color: var(--accent2);
+}
+
+/* ========== LOGIN ESPECÍFICO ========== */
+
+/* Enlaces de login */
+.login-links {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.login-links a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.login-links a:hover {
+  text-decoration: underline;
+}
+
+/* Separador */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.25rem 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ========== FOOTER ========== */
+
+/* Footer principal */
 footer {
   background: var(--surface);
   border-top: 1px solid var(--border);
   padding: 1.75rem 2rem;
   text-align: center;
   color: var(--muted);
-  font-size: .82rem;
+  font-size: 0.82rem;
   margin-top: auto;
 }
-footer .foot-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: .75rem; flex-wrap: wrap; }
-footer .foot-links a { color: var(--muted); text-decoration: none; transition: color .2s; }
-footer .foot-links a:hover { color: var(--accent); }
-.social-icons { display: flex; justify-content: center; gap: .75rem; margin-bottom: .75rem; }
+
+/* Enlaces del footer */
+footer .foot-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+footer .foot-links a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+footer .foot-links a:hover {
+  color: var(--accent);
+}
+
+/* Iconos sociales */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
 .social-icons a {
   color: var(--muted);
   font-size: 1.2rem;
-  width: 36px; height: 36px;
+  width: 36px;
+  height: 36px;
   border: 1px solid var(--border);
   border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  transition: all .2s;
+  transition: all 0.2s;
 }
-.social-icons a:hover { color: var(--accent); border-color: var(--accent); }
 
-/* ALERT */
-.alert {
-  padding: .75rem 1rem;
-  border-radius: 6px;
-  font-size: .88rem;
-  margin-bottom: 1rem;
+.social-icons a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
 }
-.alert-info { background: rgba(200,169,110,.1); border: 1px solid rgba(200,169,110,.3); color: var(--accent2); }
 
-/* LOGIN especifico */
-.login-links { text-align: center; margin-top: 1rem; font-size: .85rem; color: var(--muted); }
-.login-links a { color: var(--accent); text-decoration: none; }
-.login-links a:hover { text-decoration: underline; }
-.divider { display: flex; align-items: center; gap: 1rem; margin: 1.25rem 0; color: var(--muted); font-size: .82rem; }
-.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+/* ========== RESPONSIVE ========== */
 
-/* Utilidades */
-.mt-1 { margin-top: .5rem; } .mt-2 { margin-top: 1rem; } .mt-3 { margin-top: 1.5rem; }
-.text-muted { color: var(--muted); } .text-accent { color: var(--accent); }
-.text-center { text-align: center; }
-.w-100 { width: 100%; }
-
+/* Media queries para dispositivos móviles */
 @media (max-width: 600px) {
-  .form-row, .form-grid-3 { grid-template-columns: 1fr; }
-  .prop-details-grid { grid-template-columns: 1fr; }
-  nav { padding: .75rem 1rem; }
-  .section { padding: 1.5rem 1rem; }
+  /* Formularios en una columna */
+  .form-row,
+  .form-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Detalles de propiedad en una columna */
+  .prop-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Navegación más compacta */
+  nav {
+    padding: 0.75rem 1rem;
+  }
+
+  /* Secciones con menos padding */
+  .section {
+    padding: 1.5rem 1rem;
+  }
 }
