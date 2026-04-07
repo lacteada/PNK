@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Registro de Propietario - PNK Inmobiliaria">
   <title>Registrar Propietario — PNK Inmobiliaria</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<nav role="navigation" aria-label="Navegación principal">
+<nav>
   <a href="index.html" class="logo">PNK <span>Inmobiliaria</span></a>
   <div class="nav-links">
     <a href="index.html">Inicio</a>
@@ -18,136 +17,113 @@
   </div>
 </nav>
 
-<main id="main-content">
-  <div class="form-page">
-    <div class="form-box">
-      <h2>Registro Propietario</h2>
-      <p class="subtitle">Crea tu cuenta para publicar tus propiedades en la plataforma</p>
+<main class="form-page">
+  <div class="form-box">
+    <h2>Registro Propietario</h2>
+    <p class="subtitle">Crea tu cuenta para publicar tus propiedades en la plataforma</p>
 
-      <div class="alert alert-info" role="note" aria-live="polite">
-        ℹ️ Tu cuenta quedará en estado <strong>pendiente</strong> hasta que el administrador verifique tus antecedentes.
+    <div class="alert-info">
+      ℹ️ Tu cuenta quedará en estado <strong>pendiente</strong> hasta que el administrador verifique tus antecedentes.
+    </div>
+
+    <form id="form-propietario">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="rut">RUT *</label>
+          <input type="text" id="rut" placeholder="12.345.678-9" required
+            pattern="^\d{1,2}\.\d{3}\.\d{3}-[\dKk]$" title="Formato: 12.345.678-9">
+        </div>
+        <div class="form-group">
+          <label for="sexo">Sexo *</label>
+          <select id="sexo" required>
+            <option value="">Seleccionar</option>
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+            <option value="O">Prefiero no decir</option>
+          </select>
+        </div>
       </div>
 
-      <form action="#" method="post" novalidate aria-label="Formulario de registro de propietario" id="form-propietario">
+      <div class="form-group">
+        <label for="nombre">Nombre Completo *</label>
+        <input type="text" id="nombre" placeholder="Nombre y apellidos" required minlength="3">
+      </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="rut">RUT <abbr title="Campo obligatorio">*</abbr></label>
-            <input type="text" id="rut" name="rut" placeholder="12.345.678-9" required aria-required="true" autocomplete="off" pattern="^\d{1,2}\.\d{3}\.\d{3}-[\dKk]$" title="Formato: 12.345.678-9">
-          </div>
-          <div class="form-group">
-            <label for="sexo">Sexo <abbr title="Campo obligatorio">*</abbr></label>
-            <select id="sexo" name="sexo" required aria-required="true">
-              <option value="">Seleccionar</option>
-              <option value="M">Masculino</option>
-              <option value="F">Femenino</option>
-              <option value="O">Prefiero no decir</option>
-            </select>
-          </div>
-        </div>
-
+      <div class="form-row">
         <div class="form-group">
-          <label for="nombre">Nombre Completo <abbr title="Campo obligatorio">*</abbr></label>
-          <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellidos" required aria-required="true" autocomplete="name" minlength="3" pattern="^[a-záéíóúñ\s]+$" title="Solo letras y espacios, mínimo 3 caracteres">
+          <label for="nacimiento">Fecha de Nacimiento *</label>
+          <input type="date" id="nacimiento" required>
         </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="nacimiento">Fecha de Nacimiento <abbr title="Campo obligatorio">*</abbr></label>
-            <input type="date" id="nacimiento" name="nacimiento" required aria-required="true" max="">
-          </div>
-          <div class="form-group">
-            <label for="telefono">Teléfono Móvil <abbr title="Campo obligatorio">*</abbr></label>
-            <input type="tel" id="telefono" name="telefono" placeholder="+56 9 1234 5678" required aria-required="true" autocomplete="tel" pattern="^\+56\s9\s\d{4}\s\d{4}$" title="Formato: +56 9 1234 5678">
-          </div>
-        </div>
-
         <div class="form-group">
-          <label for="correo">Correo Electrónico <abbr title="Campo obligatorio">*</abbr></label>
-          <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required aria-required="true" autocomplete="email">
+          <label for="telefono">Teléfono Móvil *</label>
+          <input type="tel" id="telefono" placeholder="+56 9 1234 5678" required
+            pattern="^\+56\s9\s\d{4}\s\d{4}$" title="Formato: +56 9 1234 5678">
         </div>
+      </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="password">Contraseña <abbr title="Campo obligatorio">*</abbr></label>
-            <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" required aria-required="true" minlength="8" autocomplete="new-password" title="Mínimo 8 caracteres, incluye números y mayúsculas">
-          </div>
-          <div class="form-group">
-            <label for="password2">Confirmar Contraseña <abbr title="Campo obligatorio">*</abbr></label>
-            <input type="password" id="password2" name="password2" placeholder="Repetir contraseña" required aria-required="true" autocomplete="new-password">
-          </div>
-        </div>
+      <div class="form-group">
+        <label for="correo">Correo Electrónico *</label>
+        <input type="email" id="correo" placeholder="correo@ejemplo.com" required>
+      </div>
 
+      <div class="form-row">
         <div class="form-group">
-          <label for="nro-bienes">N° Propiedad (Registro Bienes Raíces) <abbr title="Campo obligatorio">*</abbr></label>
-          <input type="text" id="nro-bienes" name="nro_bienes_raices" placeholder="Ej: BR-2024-00123" required aria-required="true" minlength="3">
+          <label for="password">Contraseña *</label>
+          <input type="password" id="password" placeholder="Mínimo 8 caracteres" required minlength="8">
         </div>
-
         <div class="form-group">
-          <div class="form-check">
-            <input type="checkbox" id="terminos" name="terminos" required aria-required="true">
-            <label for="terminos">Acepto los <a href="#" style="color:var(--accent)">términos y condiciones</a></label>
-          </div>
+          <label for="password2">Confirmar Contraseña *</label>
+          <input type="password" id="password2" placeholder="Repetir contraseña" required>
         </div>
+      </div>
 
-        <button type="submit" class="btn btn-primary w-100" aria-label="Enviar formulario de registro de propietario">Registrarme como Propietario</button>
+      <div class="form-group">
+        <label for="nro-bienes">N° Propiedad (Registro Bienes Raíces) *</label>
+        <input type="text" id="nro-bienes" placeholder="Ej: BR-2024-00123" required minlength="3">
+      </div>
 
-        <div class="form-footer">
-          <a href="login.html">¿Ya tienes cuenta? Ingresar</a>
-          <a href="registro-gestor.html">Registrarme como Gestor</a>
-        </div>
-      </form>
-    </div>
+      <div class="form-check" style="margin-bottom:1rem">
+        <input type="checkbox" id="terminos" required>
+        <label for="terminos">Acepto los <a href="#" style="color:var(--accent)">términos y condiciones</a></label>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Registrarme como Propietario</button>
+
+      <div class="form-footer">
+        <a href="login.html">¿Ya tienes cuenta? Ingresar</a>
+        <a href="registro-gestor.html">Registrarme como Gestor</a>
+      </div>
+    </form>
   </div>
 </main>
 
-<footer role="contentinfo">
+<footer>
   <div class="foot-links">
     <a href="index.html">Inicio</a>
     <a href="registro-gestor.html">Registro Gestor</a>
-    <a href="login.html">Panel Admin</a>
+    <a href="login.html">Ingresar</a>
   </div>
   <p>© 2025 PNK Inmobiliaria</p>
 </footer>
 
 <script>
+  document.getElementById('nacimiento').max = new Date().toISOString().split('T')[0];
+
   document.getElementById('form-propietario').addEventListener('submit', function(e) {
-    const form = e.target;
+    e.preventDefault();
     const password = document.getElementById('password').value;
     const password2 = document.getElementById('password2').value;
-    const nacimiento = document.getElementById('nacimiento');
-    const edad = (new Date() - new Date(nacimiento.value)) / (365 * 24 * 60 * 60 * 1000);
-    
-    // Validar que las contraseñas coincidan
-    if (password !== password2) {
-      e.preventDefault();
-      alert('Las contraseñas no coinciden');
-      return;
-    }
-    
-    // Validar edad mínima (18 años)
-    if (edad < 18) {
-      e.preventDefault();
-      alert('Debes ser mayor de 18 años para registrarte');
-      return;
-    }
-    
-    // Validar que la contraseña tenga al menos un número y una mayúscula
-    if (!/\d/.test(password) || !/[A-Z]/.test(password)) {
-      e.preventDefault();
-      alert('La contraseña debe contener al menos un número y una letra mayúscula');
-      return;
-    }
-    
-    // Si todo es válido (en producción se enviaría al servidor)
-    e.preventDefault();
-    alert('Formulario validado correctamente. En producción se registraría la cuenta.');
-  });
-  
-  // Validar fecha máxima (no permite fechas futuras)
-  const hoy = new Date().toISOString().split('T')[0];
-  document.getElementById('nacimiento').max = hoy;
-</script>
+    const nacimiento = document.getElementById('nacimiento').value;
+    const edad = (new Date() - new Date(nacimiento)) / (365 * 24 * 60 * 60 * 1000);
 
+    if (password !== password2) { alert('Las contraseñas no coinciden'); return; }
+    if (edad < 18) { alert('Debes ser mayor de 18 años para registrarte'); return; }
+    if (!/\d/.test(password) || !/[A-Z]/.test(password)) {
+      alert('La contraseña debe tener al menos un número y una mayúscula'); return;
+    }
+
+    alert('Registro exitoso. Tu cuenta quedará pendiente de aprobación por el administrador.');
+  });
+</script>
 </body>
 </html>

@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Iniciar sesión - PNK Inmobiliaria">
   <title>Ingresar — PNK Inmobiliaria</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<nav role="navigation" aria-label="Navegación principal">
+<nav>
   <a href="index.html" class="logo">PNK <span>Inmobiliaria</span></a>
   <div class="nav-links">
     <a href="index.html">Inicio</a>
@@ -18,75 +17,59 @@
   </div>
 </nav>
 
-<main id="main-content">
-  <div class="form-page">
+<main class="form-page">
 
-    <!-- Panel Login -->
-    <div class="form-box" id="panel-login" role="region" aria-labelledby="login-title">
-      <h2 id="login-title">Bienvenido</h2>
-      <p class="subtitle">Ingresa a tu cuenta para gestionar tus propiedades</p>
+  <div class="form-box" id="panel-login">
+    <h2>Bienvenido</h2>
+    <p class="subtitle">Ingresa a tu cuenta para gestionar tus propiedades</p>
 
-      <form action="#" method="get" novalidate aria-label="Formulario de inicio de sesión" id="login-form">
-        <div class="form-group">
-          <label for="usuario">Correo Electrónico <abbr title="Campo obligatorio">*</abbr></label>
-          <input type="email" id="usuario" name="usuario" placeholder="correo@ejemplo.com" required aria-required="true" autocomplete="email">
-        </div>
-        <div class="form-group">
-          <label for="password">Contraseña <abbr title="Campo obligatorio">*</abbr></label>
-          <input type="password" id="password" name="password" placeholder="Tu contraseña" required aria-required="true" autocomplete="current-password">
-        </div>
-
-        <!-- Selector de tipo de usuario para simular diferentes dashboards -->
-        <div class="form-group">
-          <label for="tipo-usuario">Tipo de Usuario</label>
-          <select id="tipo-usuario" name="tipo" aria-label="Seleccionar tipo de usuario">
-            <option value="admin">Administrador</option>
-            <option value="propietario">Propietario</option>
-            <option value="gestor">Gestor Inmobiliario</option>
-          </select>
-        </div>
-
-        <button type="submit" class="btn btn-primary w-100" aria-label="Ingresar al sistema">Ingresar</button>
-      </form>
-
-      <div class="divider" aria-hidden="true">o</div>
-
-      <button class="btn btn-outline w-100" onclick="mostrar('panel-recuperar')" aria-label="Ir al formulario de recuperación de contraseña">
-        Recuperar Contraseña
-      </button>
-
-      <div class="login-links mt-2">
-        <p>¿No tienes cuenta?
-          <a href="registro-propietario.html">Propietario</a> ·
-          <a href="registro-gestor.html">Gestor</a>
-        </p>
+    <form id="login-form">
+      <div class="form-group">
+        <label for="usuario">Correo Electrónico</label>
+        <input type="email" id="usuario" placeholder="correo@ejemplo.com" required>
       </div>
-    </div>
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" placeholder="Tu contraseña" required>
+      </div>
+      <div class="form-group">
+        <label for="tipo-usuario">Tipo de Usuario</label>
+        <select id="tipo-usuario">
+          <option value="admin">Administrador</option>
+          <option value="propietario">Propietario</option>
+          <option value="gestor">Gestor Inmobiliario</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+    </form>
 
-    <!-- Panel Recuperar -->
-    <div class="form-box" id="panel-recuperar" style="display:none" role="region" aria-labelledby="recuperar-title">
-      <h2 id="recuperar-title">Recuperar Contraseña</h2>
-      <p class="subtitle">Ingresa tu correo para recibir instrucciones de recuperación</p>
+    <div class="divider">o</div>
+    <button class="btn btn-outline w-100" onclick="mostrar('panel-recuperar')">Recuperar Contraseña</button>
 
-      <form action="#" method="post" novalidate aria-label="Formulario de recuperación de contraseña">
-        <div class="form-group">
-          <label for="correo-rec">Correo Electrónico <abbr title="Campo obligatorio">*</abbr></label>
-          <input type="email" id="correo-rec" name="correo" placeholder="correo@ejemplo.com" required aria-required="true" autocomplete="email">
-        </div>
-        <button type="submit" class="btn btn-primary w-100" aria-label="Enviar instrucciones de recuperación">Enviar instrucciones</button>
-      </form>
-
-      <div class="divider" aria-hidden="true">o</div>
-
-      <button class="btn btn-outline w-100" onclick="mostrar('panel-login')" aria-label="Volver al formulario de inicio de sesión">
-        ← Volver al Login
-      </button>
-    </div>
-
+    <p style="text-align:center;margin-top:1rem;font-size:.85rem;color:var(--muted)">
+      ¿No tienes cuenta?
+      <a href="registro-propietario.html" style="color:var(--accent)">Propietario</a> ·
+      <a href="registro-gestor.html" style="color:var(--accent)">Gestor</a>
+    </p>
   </div>
+
+  <div class="form-box" id="panel-recuperar" style="display:none">
+    <h2>Recuperar Contraseña</h2>
+    <p class="subtitle">Ingresa tu correo para recibir instrucciones</p>
+    <form>
+      <div class="form-group">
+        <label for="correo-rec">Correo Electrónico</label>
+        <input type="email" id="correo-rec" placeholder="correo@ejemplo.com" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Enviar instrucciones</button>
+    </form>
+    <div class="divider">o</div>
+    <button class="btn btn-outline w-100" onclick="mostrar('panel-login')">← Volver al Login</button>
+  </div>
+
 </main>
 
-<footer role="contentinfo">
+<footer>
   <div class="foot-links">
     <a href="index.html">Inicio</a>
     <a href="registro-propietario.html">Registro Propietario</a>
@@ -96,36 +79,26 @@
 </footer>
 
 <script>
-  // Función para cambiar entre panel de login y recuperación
   function mostrar(id) {
     document.getElementById('panel-login').style.display = 'none';
     document.getElementById('panel-recuperar').style.display = 'none';
     document.getElementById(id).style.display = 'block';
   }
 
-  // Sistema de login que redirige según el tipo de usuario seleccionado
   document.getElementById('login-form').addEventListener('submit', function(e) {
     e.preventDefault();
-
     const usuario = document.getElementById('usuario').value;
     const password = document.getElementById('password').value;
-    const tipoUsuario = document.getElementById('tipo-usuario').value;
+    const tipo = document.getElementById('tipo-usuario').value;
 
-    // Verificar que se completaron los campos básicos
     if (!usuario || !password) {
       alert('Por favor completa todos los campos');
       return;
     }
 
-    // Simulación de autenticación - en producción esto validaría contra base de datos
-    // Por ahora simplemente redirigimos según el tipo seleccionado
-    if (tipoUsuario === 'admin') {
-      window.location.href = 'dashboard.html';  // Dashboard del administrador
-    } else if (tipoUsuario === 'propietario') {
-      window.location.href = 'dashboard-propietario.html';  // Dashboard del propietario
-    } else if (tipoUsuario === 'gestor') {
-      window.location.href = 'dashboard-gestor.html';  // Dashboard del gestor
-    }
+    if (tipo === 'admin') window.location.href = 'dashboard.html';
+    else if (tipo === 'propietario') window.location.href = 'dashboard-propietario.html';
+    else window.location.href = 'dashboard-gestor.html';
   });
 </script>
 </body>

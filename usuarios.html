@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mantenedor de Usuarios - PNK Inmobiliaria">
   <title>Usuarios — PNK Inmobiliaria</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<nav role="navigation" aria-label="Navegación principal">
+<nav>
   <a href="index.html" class="logo">PNK <span>Inmobiliaria</span></a>
   <div class="nav-links">
     <a href="index.html">Inicio</a>
@@ -19,38 +18,35 @@
   </div>
 </nav>
 
-<main id="main-content">
+<main>
   <div class="crud-wrap">
 
-    <!-- Header -->
     <div class="crud-header">
       <h2>Mantenedor de Usuarios</h2>
-      <div class="search-bar" role="search" aria-label="Buscar usuarios">
-        <label for="buscar-usuario" class="sr-only">Buscar usuario</label>
-        <input type="search" id="buscar-usuario" placeholder="Buscar por nombre o RUT..." aria-label="Buscar usuario por nombre o RUT">
-        <select aria-label="Filtrar por tipo de usuario">
+      <div class="search-bar">
+        <input type="search" placeholder="Buscar por nombre o RUT...">
+        <select>
           <option value="">Todos</option>
           <option>Propietario</option>
           <option>Gestor</option>
           <option>Administrador</option>
         </select>
-        <button class="btn btn-primary btn-sm" aria-label="Aplicar filtro de búsqueda">Filtrar</button>
-        <a href="registro-propietario.html" class="btn btn-success btn-sm" aria-label="Agregar nuevo usuario">+ Nuevo</a>
+        <button class="btn btn-primary btn-sm">Filtrar</button>
+        <a href="registro-propietario.html" class="btn btn-success btn-sm">+ Nuevo</a>
       </div>
     </div>
 
-    <!-- Tabla -->
-    <div style="overflow-x:auto" role="region" aria-label="Tabla de usuarios">
-      <table aria-label="Listado de usuarios del sistema">
+    <div style="overflow-x:auto">
+      <table>
         <thead>
           <tr>
-            <th scope="col">RUT</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Tipo</th>
-            <th scope="col">Correo</th>
-            <th scope="col">Teléfono</th>
-            <th scope="col">Estado</th>
-            <th scope="col">Acciones</th>
+            <th>RUT</th>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
+            <th>Estado</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -63,8 +59,8 @@
             <td><span class="badge badge-active">Activo</span></td>
             <td>
               <div class="actions">
-                <button class="btn btn-outline btn-sm" disabled aria-label="Usuario administrador no puede ser editado">Editar</button>
-                <button class="btn btn-danger btn-sm" disabled aria-label="El administrador no puede ser dado de baja">Baja</button>
+                <button class="btn btn-outline btn-sm" disabled>Editar</button>
+                <button class="btn btn-danger btn-sm" disabled>Baja</button>
               </div>
             </td>
           </tr>
@@ -77,8 +73,8 @@
             <td><span class="badge badge-active">Activo</span></td>
             <td>
               <div class="actions">
-                <button class="btn btn-outline btn-sm" onclick="abrirModal('modal-edit')" aria-label="Editar usuario Ana Martínez">Editar</button>
-                <button class="btn btn-danger btn-sm" onclick="confirmarBaja('Ana Martínez')" aria-label="Dar de baja a Ana Martínez">Baja</button>
+                <button class="btn btn-outline btn-sm" onclick="abrirModal('modal-edit')">Editar</button>
+                <button class="btn btn-danger btn-sm" onclick="confirmarBaja('Ana Martínez')">Baja</button>
               </div>
             </td>
           </tr>
@@ -91,8 +87,8 @@
             <td><span class="badge badge-active">Activo</span></td>
             <td>
               <div class="actions">
-                <button class="btn btn-outline btn-sm" onclick="abrirModal('modal-edit')" aria-label="Editar usuario Carlos Rojas">Editar</button>
-                <button class="btn btn-danger btn-sm" onclick="confirmarBaja('Carlos Rojas')" aria-label="Dar de baja a Carlos Rojas">Baja</button>
+                <button class="btn btn-outline btn-sm" onclick="abrirModal('modal-edit')">Editar</button>
+                <button class="btn btn-danger btn-sm" onclick="confirmarBaja('Carlos Rojas')">Baja</button>
               </div>
             </td>
           </tr>
@@ -105,8 +101,8 @@
             <td><span class="badge badge-pending">Pendiente</span></td>
             <td>
               <div class="actions">
-                <button class="btn btn-success btn-sm" onclick="activarUsuario('Valentina López')" aria-label="Activar cuenta de Valentina López">Activar</button>
-                <button class="btn btn-danger btn-sm" onclick="confirmarBaja('Valentina López')" aria-label="Rechazar cuenta de Valentina López">Rechazar</button>
+                <button class="btn btn-success btn-sm" onclick="activarUsuario('Valentina López')">Activar</button>
+                <button class="btn btn-danger btn-sm" onclick="confirmarBaja('Valentina López')">Rechazar</button>
               </div>
             </td>
           </tr>
@@ -119,7 +115,7 @@
             <td><span class="badge badge-inactive">Baja</span></td>
             <td>
               <div class="actions">
-                <button class="btn btn-success btn-sm" onclick="activarUsuario('Pedro Soto')" aria-label="Rehabilitar cuenta de Pedro Soto">Rehabilitar</button>
+                <button class="btn btn-success btn-sm" onclick="activarUsuario('Pedro Soto')">Rehabilitar</button>
               </div>
             </td>
           </tr>
@@ -132,54 +128,55 @@
             <td><span class="badge badge-pending">Pendiente</span></td>
             <td>
               <div class="actions">
-                <button class="btn btn-success btn-sm" onclick="activarUsuario('Daniela Fuentes')" aria-label="Activar cuenta de Daniela Fuentes">Activar</button>
-                <button class="btn btn-danger btn-sm" onclick="confirmarBaja('Daniela Fuentes')" aria-label="Rechazar cuenta de Daniela Fuentes">Rechazar</button>
+                <button class="btn btn-success btn-sm" onclick="activarUsuario('Daniela Fuentes')">Activar</button>
+                <button class="btn btn-danger btn-sm" onclick="confirmarBaja('Daniela Fuentes')">Rechazar</button>
               </div>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
+
   </div>
 </main>
 
-<!-- Modal Editar Usuario -->
-<div class="modal-overlay" id="modal-edit" role="dialog" aria-modal="true" aria-labelledby="edit-title">
-  <div class="modal" style="max-width:480px">
-    <button class="modal-close" onclick="cerrarModal('modal-edit')" aria-label="Cerrar modal">✕</button>
-    <h3 id="edit-title" style="font-family:'Playfair Display',serif;color:var(--accent);margin-bottom:1.25rem">Editar Usuario</h3>
-    <form aria-label="Formulario de edición de usuario">
+<!-- Modal editar usuario -->
+<div class="modal-overlay" id="modal-edit">
+  <div class="modal" style="max-width:460px">
+    <button class="modal-close" onclick="cerrarModal('modal-edit')">✕</button>
+    <h3 style="font-family:'Playfair Display',serif;color:var(--accent);margin-bottom:1.25rem">Editar Usuario</h3>
+    <form>
       <div class="form-group">
-        <label for="e-nombre">Nombre Completo</label>
-        <input type="text" id="e-nombre" value="Ana Martínez Pérez">
+        <label>Nombre Completo</label>
+        <input type="text" value="Ana Martínez Pérez">
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label for="e-correo">Correo</label>
-          <input type="email" id="e-correo" value="ana@correo.com">
+          <label>Correo</label>
+          <input type="email" value="ana@correo.com">
         </div>
         <div class="form-group">
-          <label for="e-tel">Teléfono</label>
-          <input type="tel" id="e-tel" value="+56 9 8765 4321">
+          <label>Teléfono</label>
+          <input type="tel" value="+56 9 8765 4321">
         </div>
       </div>
       <div class="form-group">
-        <label for="e-estado">Estado</label>
-        <select id="e-estado" aria-label="Estado del usuario">
+        <label>Estado</label>
+        <select>
           <option>Activo</option>
           <option>Pendiente</option>
           <option>Baja</option>
         </select>
       </div>
       <div style="display:flex;gap:.75rem;margin-top:1rem">
-        <button type="submit" class="btn btn-primary" style="flex:1" aria-label="Guardar cambios del usuario">Guardar</button>
-        <button type="button" class="btn btn-outline" onclick="cerrarModal('modal-edit')" aria-label="Cancelar edición">Cancelar</button>
+        <button type="submit" class="btn btn-primary" style="flex:1">Guardar</button>
+        <button type="button" class="btn btn-outline" onclick="cerrarModal('modal-edit')">Cancelar</button>
       </div>
     </form>
   </div>
 </div>
 
-<footer role="contentinfo">
+<footer>
   <div class="foot-links">
     <a href="index.html">Inicio</a>
     <a href="dashboard.html">Dashboard</a>
@@ -201,18 +198,14 @@
     if (confirm(`¿Dar de baja a ${nombre}?`)) alert(`${nombre} dado de baja correctamente.`);
   }
   function activarUsuario(nombre) {
-    alert(`Cuenta de ${nombre} activada. Se ha enviado correo de notificación.`);
+    alert(`Cuenta de ${nombre} activada. Se envió correo de notificación.`);
   }
-  function protegerAdmin() {
-    document.querySelectorAll('button[disabled]').forEach(btn => {
-      btn.style.opacity = '0.5';
-      btn.style.cursor = 'not-allowed';
-      btn.title = 'No se puede modificar cuentas de Administrador';
-    });
-  }
-  protegerAdmin();
   document.querySelectorAll('.modal-overlay').forEach(m => {
-    m.addEventListener('click', e => { if(e.target === m) cerrarModal(m.id); });
+    m.addEventListener('click', e => { if (e.target === m) cerrarModal(m.id); });
+  });
+  document.querySelectorAll('button[disabled]').forEach(btn => {
+    btn.style.opacity = '.4';
+    btn.style.cursor = 'not-allowed';
   });
 </script>
 </body>

@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mantenedor de Propiedades - PNK Inmobiliaria">
   <title>Propiedades — PNK Inmobiliaria</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<nav role="navigation" aria-label="Navegación principal">
+<nav>
   <a href="index.html" class="logo">PNK <span>Inmobiliaria</span></a>
   <div class="nav-links">
     <a href="index.html">Inicio</a>
@@ -19,286 +18,221 @@
   </div>
 </nav>
 
-<main id="main-content">
+<main>
   <div class="crud-wrap">
 
     <div class="crud-header">
       <h2>Mantenedor de Propiedades</h2>
-      <div class="search-bar" role="search" aria-label="Buscar propiedades">
-        <label for="buscar-prop" class="sr-only">Buscar propiedad</label>
-        <input type="search" id="buscar-prop" placeholder="Buscar por código o ubicación..." aria-label="Buscar propiedad por código o ubicación">
-        <select aria-label="Filtrar por tipo de propiedad">
+      <div class="search-bar">
+        <input type="search" placeholder="Buscar por código o ubicación...">
+        <select>
           <option value="">Todos</option>
           <option>Casa</option>
           <option>Departamento</option>
           <option>Terreno</option>
         </select>
-        <button class="btn btn-primary btn-sm" aria-label="Aplicar filtro">Filtrar</button>
-        <button class="btn btn-success btn-sm" onclick="abrirModal('modal-nueva')" aria-label="Agregar nueva propiedad">+ Nueva</button>
+        <button class="btn btn-primary btn-sm">Filtrar</button>
+        <button class="btn btn-success btn-sm" onclick="abrirModal('modal-nueva')">+ Nueva</button>
       </div>
     </div>
 
-    <div style="overflow-x:auto" role="region" aria-label="Tabla de propiedades">
-      <table aria-label="Listado de propiedades">
+    <div style="overflow-x:auto">
+      <table>
         <thead>
           <tr>
-            <th scope="col">Código</th>
-            <th scope="col">Tipo</th>
-            <th scope="col">Ubicación</th>
-            <th scope="col">Precio $</th>
-            <th scope="col">Precio UF</th>
-            <th scope="col">Estado</th>
-            <th scope="col">Propietario</th>
-            <th scope="col">Acciones</th>
+            <th>Código</th>
+            <th>Tipo</th>
+            <th>Ubicación</th>
+            <th>Precio $</th>
+            <th>Precio UF</th>
+            <th>Estado</th>
+            <th>Propietario</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>C0125457</td>
-            <td>Casa</td>
-            <td>El Milagro, La Serena</td>
-            <td>$154.000.000</td>
-            <td>UF 5.650</td>
+            <td>C0125457</td><td>Casa</td><td>El Milagro, La Serena</td>
+            <td>$154.000.000</td><td>UF 5.650</td>
             <td><span class="badge badge-active">Activa</span></td>
             <td>Ana Martínez</td>
-            <td>
-              <div class="actions">
-                <button class="btn btn-outline btn-sm" onclick="abrirModal('modal-edit-prop')" aria-label="Editar propiedad C0125457">Editar</button>
-                <button class="btn btn-danger btn-sm" onclick="eliminarProp('C0125457')" aria-label="Eliminar propiedad C0125457">Eliminar</button>
-              </div>
-            </td>
+            <td><div class="actions">
+              <button class="btn btn-outline btn-sm" onclick="abrirModal('modal-editar')">Editar</button>
+              <button class="btn btn-danger btn-sm" onclick="eliminarProp('C0125457')">Eliminar</button>
+            </div></td>
           </tr>
           <tr>
-            <td>D0238891</td>
-            <td>Departamento</td>
-            <td>Centro, Coquimbo</td>
-            <td>$85.000.000</td>
-            <td>UF 3.120</td>
+            <td>D0238891</td><td>Departamento</td><td>Centro, Coquimbo</td>
+            <td>$85.000.000</td><td>UF 3.120</td>
             <td><span class="badge badge-active">Activa</span></td>
             <td>Carlos Rojas</td>
-            <td>
-              <div class="actions">
-                <button class="btn btn-outline btn-sm" onclick="abrirModal('modal-edit-prop')" aria-label="Editar propiedad D0238891">Editar</button>
-                <button class="btn btn-danger btn-sm" onclick="eliminarProp('D0238891')" aria-label="Eliminar propiedad D0238891">Eliminar</button>
-              </div>
-            </td>
+            <td><div class="actions">
+              <button class="btn btn-outline btn-sm" onclick="abrirModal('modal-editar')">Editar</button>
+              <button class="btn btn-danger btn-sm" onclick="eliminarProp('D0238891')">Eliminar</button>
+            </div></td>
           </tr>
           <tr>
-            <td>T0344120</td>
-            <td>Terreno</td>
-            <td>Centro, Ovalle</td>
-            <td>$42.000.000</td>
-            <td>UF 1.540</td>
+            <td>T0344120</td><td>Terreno</td><td>Centro, Ovalle</td>
+            <td>$42.000.000</td><td>UF 1.540</td>
             <td><span class="badge badge-pending">Pendiente</span></td>
             <td>Valentina López</td>
-            <td>
-              <div class="actions">
-                <button class="btn btn-outline btn-sm" onclick="abrirModal('modal-edit-prop')" aria-label="Editar propiedad T0344120">Editar</button>
-                <button class="btn btn-danger btn-sm" onclick="eliminarProp('T0344120')" aria-label="Eliminar propiedad T0344120">Eliminar</button>
-              </div>
-            </td>
+            <td><div class="actions">
+              <button class="btn btn-outline btn-sm" onclick="abrirModal('modal-editar')">Editar</button>
+              <button class="btn btn-danger btn-sm" onclick="eliminarProp('T0344120')">Eliminar</button>
+            </div></td>
           </tr>
           <tr>
-            <td>C0198320</td>
-            <td>Casa</td>
-            <td>Las Compañías, La Serena</td>
-            <td>$120.000.000</td>
-            <td>UF 4.400</td>
+            <td>C0198320</td><td>Casa</td><td>Las Compañías, La Serena</td>
+            <td>$120.000.000</td><td>UF 4.400</td>
             <td><span class="badge badge-active">Activa</span></td>
             <td>Pedro Soto</td>
-            <td>
-              <div class="actions">
-                <button class="btn btn-outline btn-sm" onclick="abrirModal('modal-edit-prop')" aria-label="Editar propiedad C0198320">Editar</button>
-                <button class="btn btn-danger btn-sm" onclick="eliminarProp('C0198320')" aria-label="Eliminar propiedad C0198320">Eliminar</button>
-              </div>
-            </td>
+            <td><div class="actions">
+              <button class="btn btn-outline btn-sm" onclick="abrirModal('modal-editar')">Editar</button>
+              <button class="btn btn-danger btn-sm" onclick="eliminarProp('C0198320')">Eliminar</button>
+            </div></td>
           </tr>
         </tbody>
       </table>
     </div>
+
   </div>
 </main>
 
-<!-- Modal Nueva / Editar Propiedad -->
-<div class="modal-overlay" id="modal-nueva" role="dialog" aria-modal="true" aria-labelledby="nueva-title">
+<!-- Modal Nueva Propiedad -->
+<div class="modal-overlay" id="modal-nueva">
   <div class="modal">
-    <button class="modal-close" onclick="cerrarModal('modal-nueva')" aria-label="Cerrar modal">✕</button>
-    <h3 id="nueva-title" style="font-family:'Playfair Display',serif;color:var(--accent);margin-bottom:1.25rem">Nueva Propiedad</h3>
-    <form aria-label="Formulario para agregar nueva propiedad">
+    <button class="modal-close" onclick="cerrarModal('modal-nueva')">✕</button>
+    <h3 style="font-family:'Playfair Display',serif;color:var(--accent);margin-bottom:1.25rem">Nueva Propiedad</h3>
+    <form id="form-nueva">
       <div class="form-row">
         <div class="form-group">
-          <label for="tipo">Tipo de Propiedad <abbr title="Campo obligatorio">*</abbr></label>
-          <select id="tipo" required aria-required="true">
+          <label>Tipo de Propiedad *</label>
+          <select id="tipo" required>
             <option value="">Seleccionar</option>
-            <option>Casa</option>
-            <option>Departamento</option>
-            <option>Terreno</option>
+            <option>Casa</option><option>Departamento</option><option>Terreno</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="fecha-pub">Fecha Publicación</label>
-          <input type="date" id="fecha-pub" name="fecha_pub">
+          <label>Fecha Publicación</label>
+          <input type="date" id="fecha-pub">
         </div>
       </div>
-
       <div class="form-group">
-        <label for="descripcion">Descripción</label>
-        <textarea id="descripcion" name="descripcion" placeholder="Descripción de la propiedad..." rows="3"></textarea>
+        <label>Descripción</label>
+        <textarea id="descripcion" rows="3" placeholder="Descripción de la propiedad..."></textarea>
       </div>
-
       <div class="form-row">
         <div class="form-group">
-          <label for="provincia-p">Provincia <abbr title="Campo obligatorio">*</abbr></label>
-          <select id="provincia-p" required aria-required="true" aria-describedby="provincia-hint">
+          <label>Provincia *</label>
+          <select id="provincia-p" required>
             <option value="">Seleccionar</option>
-            <option>Elqui</option>
-            <option>Limarí</option>
-            <option>Choapa</option>
+            <option>Elqui</option><option>Limarí</option><option>Choapa</option>
           </select>
-          <small id="provincia-hint" style="color:var(--muted);font-size:.75rem">Se usará para geocodificar en Google Maps</small>
         </div>
         <div class="form-group">
-          <label for="comuna-p">Comuna <abbr title="Campo obligatorio">*</abbr></label>
-          <select id="comuna-p" required aria-required="true">
+          <label>Comuna *</label>
+          <select id="comuna-p" required>
             <option value="">Seleccionar</option>
-            <option>La Serena</option>
-            <option>Coquimbo</option>
-            <option>Ovalle</option>
-            <option>Illapel</option>
-            <option>Vicuña</option>
+            <option>La Serena</option><option>Coquimbo</option><option>Ovalle</option><option>Illapel</option><option>Vicuña</option>
           </select>
         </div>
       </div>
       <div class="form-group">
-        <label for="sector-p">Sector <abbr title="Campo obligatorio">*</abbr></label>
-        <input type="text" id="sector-p" placeholder="Ej: El Milagro" required aria-required="true">
+        <label>Sector *</label>
+        <input type="text" id="sector-p" placeholder="Ej: El Milagro" required>
       </div>
-
       <div class="form-row">
         <div class="form-group">
-          <label for="dormitorios">Dormitorios</label>
+          <label>Dormitorios</label>
           <input type="number" id="dormitorios" min="0" max="20" placeholder="Ej: 3">
         </div>
         <div class="form-group">
-          <label for="banos">Baños</label>
+          <label>Baños</label>
           <input type="number" id="banos" min="0" max="20" placeholder="Ej: 2">
         </div>
       </div>
-
       <div class="form-row">
         <div class="form-group">
-          <label for="area-construida">Área Construida (m²)</label>
+          <label>Área Construida (m²)</label>
           <input type="number" id="area-construida" min="0" placeholder="Ej: 120">
         </div>
         <div class="form-group">
-          <label for="area-terreno">Área Terreno (m²)</label>
+          <label>Área Terreno (m²)</label>
           <input type="number" id="area-terreno" min="0" placeholder="Ej: 250">
         </div>
       </div>
-
       <div class="form-row">
         <div class="form-group">
-          <label for="precio-pesos">Precio en $ <abbr title="Campo obligatorio">*</abbr></label>
-          <input type="number" id="precio-pesos" required aria-required="true" placeholder="Ej: 120000000">
+          <label>Precio en $ *</label>
+          <input type="number" id="precio-pesos" required placeholder="Ej: 120000000">
         </div>
         <div class="form-group">
-          <label for="precio-uf">Precio en UF <abbr title="Campo obligatorio">*</abbr></label>
-          <input type="number" id="precio-uf" required aria-required="true" placeholder="Ej: 4400">
+          <label>Precio en UF *</label>
+          <input type="number" id="precio-uf" required placeholder="Ej: 4400">
         </div>
       </div>
-
       <div class="form-group">
-        <label for="fotos">Fotografías (1 a 10)</label>
-        <input type="file" id="fotos" name="fotos" multiple accept="image/*" aria-describedby="fotos-hint">
-        <small id="fotos-hint" style="color:var(--muted);font-size:.78rem">Selecciona entre 1 y 10 imágenes.</small>
+        <label>Fotografías (1 a 10)</label>
+        <input type="file" id="fotos" multiple accept="image/*">
+        <small style="color:var(--muted);font-size:.78rem">Selecciona entre 1 y 10 imágenes. Máx 5 MB c/u.</small>
       </div>
-
       <fieldset style="border:1px solid var(--border);border-radius:6px;padding:1rem;margin-bottom:1rem">
         <legend style="color:var(--muted);font-size:.82rem;padding:0 .5rem">Características adicionales</legend>
         <div class="form-grid-3">
-          <div class="form-check">
-            <input type="checkbox" id="bodega" name="bodega">
-            <label for="bodega">Bodega</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" id="estacionamiento" name="estacionamiento">
-            <label for="estacionamiento">Estacionamiento</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" id="logia" name="logia">
-            <label for="logia">Logia</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" id="cocina" name="cocina">
-            <label for="cocina">Cocina amoblada</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" id="antejardín" name="antejardin">
-            <label for="antejardín">Antejardín</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" id="patio" name="patio">
-            <label for="patio">Patio trasero</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" id="piscina" name="piscina">
-            <label for="piscina">Piscina</label>
-          </div>
+          <div class="form-check"><input type="checkbox" id="bodega"><label for="bodega">Bodega</label></div>
+          <div class="form-check"><input type="checkbox" id="estacionamiento"><label for="estacionamiento">Estacionamiento</label></div>
+          <div class="form-check"><input type="checkbox" id="logia"><label for="logia">Logia</label></div>
+          <div class="form-check"><input type="checkbox" id="cocina"><label for="cocina">Cocina amoblada</label></div>
+          <div class="form-check"><input type="checkbox" id="antejardin"><label for="antejardin">Antejardín</label></div>
+          <div class="form-check"><input type="checkbox" id="patio"><label for="patio">Patio trasero</label></div>
+          <div class="form-check"><input type="checkbox" id="piscina"><label for="piscina">Piscina</label></div>
         </div>
       </fieldset>
-
-      <div class="form-group">
-        <div class="form-check">
-          <input type="checkbox" id="visita" name="solicitar_visita">
-          <label for="visita">Permitir solicitud de visita</label>
-        </div>
+      <div class="form-check" style="margin-bottom:1rem">
+        <input type="checkbox" id="visita">
+        <label for="visita">Permitir solicitud de visita</label>
       </div>
-
       <div style="display:flex;gap:.75rem">
-        <button type="submit" class="btn btn-primary" style="flex:1" aria-label="Guardar nueva propiedad">Publicar Propiedad</button>
-        <button type="button" class="btn btn-outline" onclick="cerrarModal('modal-nueva')" aria-label="Cancelar">Cancelar</button>
+        <button type="submit" class="btn btn-primary" style="flex:1">Publicar Propiedad</button>
+        <button type="button" class="btn btn-outline" onclick="cerrarModal('modal-nueva')">Cancelar</button>
       </div>
     </form>
   </div>
 </div>
 
-<!-- Modal Editar Propiedad (reutiliza misma estructura) -->
-<div class="modal-overlay" id="modal-edit-prop" role="dialog" aria-modal="true" aria-labelledby="edit-prop-title">
-  <div class="modal" style="max-width:480px">
-    <button class="modal-close" onclick="cerrarModal('modal-edit-prop')" aria-label="Cerrar">✕</button>
-    <h3 id="edit-prop-title" style="font-family:'Playfair Display',serif;color:var(--accent);margin-bottom:1.25rem">Editar Propiedad</h3>
-    <form aria-label="Formulario de edición de propiedad">
+<!-- Modal Editar Propiedad -->
+<div class="modal-overlay" id="modal-editar">
+  <div class="modal" style="max-width:460px">
+    <button class="modal-close" onclick="cerrarModal('modal-editar')">✕</button>
+    <h3 style="font-family:'Playfair Display',serif;color:var(--accent);margin-bottom:1.25rem">Editar Propiedad</h3>
+    <form>
       <div class="form-group">
-        <label for="ep-tipo">Tipo</label>
-        <select id="ep-tipo"><option>Casa</option><option>Departamento</option><option>Terreno</option></select>
+        <label>Tipo</label>
+        <select><option>Casa</option><option>Departamento</option><option>Terreno</option></select>
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label for="ep-precio">Precio $</label>
-          <input type="number" id="ep-precio" value="154000000">
+          <label>Precio $</label>
+          <input type="number" value="154000000">
         </div>
         <div class="form-group">
-          <label for="ep-uf">Precio UF</label>
-          <input type="number" id="ep-uf" value="5650">
+          <label>Precio UF</label>
+          <input type="number" value="5650">
         </div>
       </div>
       <div class="form-group">
-        <label for="ep-estado">Estado</label>
-        <select id="ep-estado">
-          <option>Activa</option>
-          <option>Pendiente</option>
-          <option>Baja</option>
-        </select>
+        <label>Estado</label>
+        <select><option>Activa</option><option>Pendiente</option><option>Baja</option></select>
       </div>
       <div style="display:flex;gap:.75rem;margin-top:1rem">
-        <button type="submit" class="btn btn-primary" style="flex:1" aria-label="Guardar cambios">Guardar</button>
-        <button type="button" class="btn btn-outline" onclick="cerrarModal('modal-edit-prop')" aria-label="Cancelar">Cancelar</button>
+        <button type="submit" class="btn btn-primary" style="flex:1">Guardar</button>
+        <button type="button" class="btn btn-outline" onclick="cerrarModal('modal-editar')">Cancelar</button>
       </div>
     </form>
   </div>
 </div>
 
-<footer role="contentinfo">
+<footer>
   <div class="foot-links">
     <a href="index.html">Inicio</a>
     <a href="dashboard.html">Dashboard</a>
@@ -319,57 +253,28 @@
   function eliminarProp(cod) {
     if (confirm(`¿Eliminar propiedad ${cod}?`)) alert(`Propiedad ${cod} eliminada.`);
   }
-  
-  // Validación del formulario de nueva propiedad
-  const formNueva = document.querySelector('form[aria-label="Formulario para agregar nueva propiedad"]');
-  if (formNueva) {
-    formNueva.addEventListener('submit', function(e) {
-      const fotos = document.getElementById('fotos').files;
-      const precio = document.getElementById('precio-pesos').value;
-      const precioUF = document.getElementById('precio-uf').value;
-      
-      // Validar cantidad de fotos (1-10)
-      if (fotos.length < 1 || fotos.length > 10) {
-        e.preventDefault();
-        alert('Debes seleccionar entre 1 y 10 fotografías');
-        return;
+  document.getElementById('form-nueva').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const fotos = document.getElementById('fotos').files;
+    const precio = document.getElementById('precio-pesos').value;
+    const precioUF = document.getElementById('precio-uf').value;
+
+    if (fotos.length < 1 || fotos.length > 10) {
+      alert('Debes seleccionar entre 1 y 10 fotografías'); return;
+    }
+    for (const f of fotos) {
+      if (f.size > 5 * 1024 * 1024) {
+        alert(`El archivo ${f.name} excede 5 MB`); return;
       }
-      
-      // Validar tamaño de archivos (máx 5MB cada una)
-      Array.from(fotos).forEach(file => {
-        if (file.size > 5 * 1024 * 1024) {
-          e.preventDefault();
-          alert(`El archivo ${file.name} excede 5 MB`);
-          return;
-        }
-      });
-      
-      // Validar precios
-      if (!precio || precio <= 0) {
-        e.preventDefault();
-        alert('Ingresa un precio válido en pesos');
-        return;
-      }
-      
-      if (!precioUF || precioUF <= 0) {
-        e.preventDefault();
-        alert('Ingresa un precio válido en UF');
-        return;
-      }
-      
-      // En integración futura: geocodificar ubicación con Google Maps API
-      // const provincia = document.getElementById('provincia-p').value;
-      // const comuna = document.getElementById('comuna-p').value;
-      // const sector = document.getElementById('sector-p').value;
-      // geocodificarPropiedad(provincia, comuna, sector);
-      
-      e.preventDefault();
-      alert('Propiedad validada. Cuando se integre el backend, se guardará en la base de datos.');
-    });
-  }
-  
+    }
+    if (!precio || precio <= 0) { alert('Ingresa un precio válido en pesos'); return; }
+    if (!precioUF || precioUF <= 0) { alert('Ingresa un precio válido en UF'); return; }
+
+    alert('Propiedad validada y publicada correctamente.');
+    cerrarModal('modal-nueva');
+  });
   document.querySelectorAll('.modal-overlay').forEach(m => {
-    m.addEventListener('click', e => { if(e.target === m) cerrarModal(m.id); });
+    m.addEventListener('click', e => { if (e.target === m) cerrarModal(m.id); });
   });
 </script>
 </body>

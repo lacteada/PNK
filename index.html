@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="PNK Inmobiliaria - Plataforma de propiedades en la Región de Coquimbo">
   <title>PNK Inmobiliaria</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- Barra de navegación principal con acceso a registro e ingreso -->
-<nav role="navigation" aria-label="Navegación principal">
-  <a href="index.html" class="logo" aria-label="PNK Inmobiliaria - Inicio">PNK <span>Inmobiliaria</span></a>
+<nav>
+  <a href="index.html" class="logo">PNK <span>Inmobiliaria</span></a>
   <div class="nav-links">
     <a href="registro-propietario.html" class="btn btn-outline btn-sm">Registrar Propietario</a>
     <a href="registro-gestor.html" class="btn btn-outline btn-sm">Registrar Gestor</a>
@@ -19,140 +17,102 @@
   </div>
 </nav>
 
-<!-- Sección hero con título principal y buscador -->
-<header class="hero" role="banner">
+<header class="hero">
   <h1>Encuentra tu propiedad ideal</h1>
   <p>Casas, departamentos y terrenos en la Región de Coquimbo</p>
-
-  <!-- Formulario de búsqueda principal con filtros geográficos -->
-  <form class="buscador" role="search" aria-label="Buscar propiedades">
-    <!-- Filtro por tipo de propiedad -->
-    <label for="tipo" class="sr-only">Tipo de Propiedad</label>
-    <select id="tipo" name="tipo" aria-label="Seleccionar tipo de propiedad">
-      <option value="">Tipo</option>
-      <option>Casa</option>
-      <option>Departamento</option>
-      <option>Terreno</option>
-    </select>
-
-    <!-- Filtro por provincia -->
-    <label for="provincia" class="sr-only">Provincia</label>
-    <select id="provincia" name="provincia" aria-label="Seleccionar provincia">
-      <option value="">Provincia</option>
-      <option>Elqui</option>
-      <option>Limarí</option>
-      <option>Choapa</option>
-    </select>
-
-    <!-- Filtro por comuna -->
-    <label for="comuna" class="sr-only">Comuna</label>
-    <select id="comuna" name="comuna" aria-label="Seleccionar comuna">
-      <option value="">Comuna</option>
-      <option>La Serena</option>
-      <option>Coquimbo</option>
-      <option>Ovalle</option>
-      <option>Illapel</option>
-      <option>Vicuña</option>
-    </select>
-
-    <!-- Campo de texto libre para sector específico -->
-    <label for="sector" class="sr-only">Sector</label>
-    <input id="sector" type="text" name="sector" placeholder="Sector (ej: El Milagro)" aria-label="Sector">
-
-    <!-- Botón de búsqueda -->
-    <button type="submit" class="btn btn-primary" aria-label="Buscar propiedades">Buscar</button>
+  <form class="buscador">
+    <select name="tipo"><option value="">Tipo</option><option>Casa</option><option>Departamento</option><option>Terreno</option></select>
+    <select name="provincia"><option value="">Provincia</option><option>Elqui</option><option>Limarí</option><option>Choapa</option></select>
+    <select name="comuna"><option value="">Comuna</option><option>La Serena</option><option>Coquimbo</option><option>Ovalle</option><option>Illapel</option><option>Vicuña</option></select>
+    <input type="text" name="sector" placeholder="Sector (ej: El Milagro)">
+    <button type="submit" class="btn btn-primary">Buscar</button>
   </form>
 </header>
 
-<main id="main-content">
-  <section class="section" aria-labelledby="props-title">
-    <h2 class="section-title" id="props-title">Propiedades Destacadas</h2>
-    <div class="grid-3" role="list" aria-label="Listado de propiedades">
+<main>
+  <section class="section">
+    <h2 class="section-title">Propiedades Destacadas</h2>
+    <div class="grid-3">
 
-      <!-- Card 1 -->
-      <article class="prop-card" role="listitem" aria-label="Casa en El Milagro">
-        <div class="prop-img-placeholder" aria-hidden="true">🏠</div>
+      <article class="prop-card">
+        <div class="prop-img" style="background:linear-gradient(135deg,#1a1610,#2e2b27)">🏠</div>
         <div class="prop-body">
           <span class="prop-badge">Casa</span>
           <p class="prop-code">Cód: C0125457</p>
           <p class="prop-title">Sector El Milagro, La Serena</p>
           <p class="prop-price">$154.000.000 <small>/ UF 5.650</small></p>
-          <button class="btn btn-primary btn-sm w-100" onclick="abrirModal('modal1')" aria-haspopup="dialog">Quiero saber más</button>
+          <button class="btn btn-primary btn-sm w-100" onclick="abrirModal('modal1')">Quiero saber más</button>
         </div>
       </article>
 
-      <!-- Card 2 -->
-      <article class="prop-card" role="listitem" aria-label="Departamento en Coquimbo">
-        <div class="prop-img-placeholder" aria-hidden="true">🏢</div>
+      <article class="prop-card">
+        <div class="prop-img" style="background:linear-gradient(135deg,#2e2b27,#3a3530)">🏢</div>
         <div class="prop-body">
           <span class="prop-badge">Departamento</span>
           <p class="prop-code">Cód: D0238891</p>
           <p class="prop-title">Centro, Coquimbo</p>
           <p class="prop-price">$85.000.000 <small>/ UF 3.120</small></p>
-          <button class="btn btn-primary btn-sm w-100" onclick="abrirModal('modal2')" aria-haspopup="dialog">Quiero saber más</button>
+          <button class="btn btn-primary btn-sm w-100" onclick="abrirModal('modal2')">Quiero saber más</button>
         </div>
       </article>
 
-      <!-- Card 3 -->
-      <article class="prop-card" role="listitem" aria-label="Terreno en Ovalle">
-        <div class="prop-img-placeholder" aria-hidden="true">🌿</div>
+      <article class="prop-card">
+        <div class="prop-img" style="background:linear-gradient(135deg,#3a3530,#4a4540)">🌿</div>
         <div class="prop-body">
           <span class="prop-badge">Terreno</span>
           <p class="prop-code">Cód: T0344120</p>
           <p class="prop-title">Sector Centro, Ovalle</p>
           <p class="prop-price">$42.000.000 <small>/ UF 1.540</small></p>
-          <button class="btn btn-primary btn-sm w-100" onclick="abrirModal('modal3')" aria-haspopup="dialog">Quiero saber más</button>
+          <button class="btn btn-primary btn-sm w-100" onclick="abrirModal('modal3')">Quiero saber más</button>
         </div>
       </article>
 
-      <!-- Card 4 -->
-      <article class="prop-card" role="listitem" aria-label="Casa en Las Compañías">
-        <div class="prop-img-placeholder" aria-hidden="true">🏠</div>
+      <article class="prop-card">
+        <div class="prop-img" style="background:linear-gradient(135deg,#1a1610,#2e2b27)">🏠</div>
         <div class="prop-body">
           <span class="prop-badge">Casa</span>
           <p class="prop-code">Cód: C0198320</p>
           <p class="prop-title">Las Compañías, La Serena</p>
           <p class="prop-price">$120.000.000 <small>/ UF 4.400</small></p>
-          <button class="btn btn-primary btn-sm w-100" onclick="abrirModal('modal1')" aria-haspopup="dialog">Quiero saber más</button>
+          <button class="btn btn-primary btn-sm w-100" onclick="abrirModal('modal1')">Quiero saber más</button>
         </div>
       </article>
 
-      <!-- Card 5 -->
-      <article class="prop-card" role="listitem" aria-label="Departamento en Vicuña">
-        <div class="prop-img-placeholder" aria-hidden="true">🏢</div>
+      <article class="prop-card">
+        <div class="prop-img" style="background:linear-gradient(135deg,#2e2b27,#3a3530)">🏢</div>
         <div class="prop-body">
           <span class="prop-badge">Departamento</span>
           <p class="prop-code">Cód: D0291002</p>
           <p class="prop-title">Centro, Vicuña</p>
           <p class="prop-price">$68.000.000 <small>/ UF 2.490</small></p>
-          <button class="btn btn-primary btn-sm w-100" onclick="abrirModal('modal2')" aria-haspopup="dialog">Quiero saber más</button>
+          <button class="btn btn-primary btn-sm w-100" onclick="abrirModal('modal2')">Quiero saber más</button>
         </div>
       </article>
 
-      <!-- Card 6 -->
-      <article class="prop-card" role="listitem" aria-label="Terreno en Illapel">
-        <div class="prop-img-placeholder" aria-hidden="true">🌿</div>
+      <article class="prop-card">
+        <div class="prop-img" style="background:linear-gradient(135deg,#3a3530,#4a4540)">🌿</div>
         <div class="prop-body">
           <span class="prop-badge">Terreno</span>
           <p class="prop-code">Cód: T0410881</p>
           <p class="prop-title">Sector Norte, Illapel</p>
           <p class="prop-price">$28.000.000 <small>/ UF 1.030</small></p>
-          <button class="btn btn-primary btn-sm w-100" onclick="abrirModal('modal3')" aria-haspopup="dialog">Quiero saber más</button>
+          <button class="btn btn-primary btn-sm w-100" onclick="abrirModal('modal3')">Quiero saber más</button>
         </div>
       </article>
+
     </div>
   </section>
 </main>
 
-<!-- Modal detalle propiedad -->
-<div class="modal-overlay" id="modal1" role="dialog" aria-modal="true" aria-labelledby="modal1-title">
+<!-- Modal 1 - Casa -->
+<div class="modal-overlay" id="modal1">
   <div class="modal">
-    <button class="modal-close" onclick="cerrarModal('modal1')" aria-label="Cerrar">✕</button>
+    <button class="modal-close" onclick="cerrarModal('modal1')">✕</button>
     <span class="prop-badge">Casa</span>
-    <h2 id="modal1-title" style="font-family:'Playfair Display',serif;color:var(--accent);margin:.5rem 0">Sector El Milagro, La Serena</h2>
-    <p class="text-muted" style="font-size:.82rem">Cód: C0125457 · Publicado: 15/03/2025</p>
-    <div class="prop-img-placeholder mt-2" style="height:200px;border-radius:8px" aria-label="Fotografía de la propiedad">🏠</div>
-    <div class="prop-details-grid mt-2">
+    <h2 style="font-family:'Playfair Display',serif;color:var(--accent);margin:.5rem 0">Sector El Milagro, La Serena</h2>
+    <p style="color:var(--muted);font-size:.82rem">Cód: C0125457 · Publicado: 15/03/2025</p>
+    <div class="prop-img mt-2" style="height:200px;border-radius:8px;background:linear-gradient(135deg,#1a1610,#2e2b27)">🏠</div>
+    <div class="prop-details-grid" style="margin-top:.75rem">
       <span>Precio</span><strong>$154.000.000</strong>
       <span>Precio UF</span><strong>UF 5.650</strong>
       <span>Dormitorios</span><strong>4</strong>
@@ -160,8 +120,7 @@
       <span>Área Construida</span><strong>145 m²</strong>
       <span>Área Terreno</span><strong>280 m²</strong>
     </div>
-    <p style="color:var(--muted);font-size:.88rem;margin:.75rem 0">Hermosa casa en sector residencial tranquilo, con acceso rápido a avenida principal. Excelente iluminación natural, cocina remodelada y patio trasero amplio.</p>
-    <p style="font-size:.85rem;margin-bottom:.4rem"><strong>Cuenta con:</strong></p>
+    <p style="color:var(--muted);font-size:.88rem;margin:.75rem 0">Hermosa casa en sector residencial tranquilo, con acceso rápido a avenida principal. Cocina remodelada y patio trasero amplio.</p>
     <div class="amenidades">
       <span class="amenidad">✓ Bodega</span>
       <span class="amenidad">✓ Estacionamiento</span>
@@ -169,27 +128,26 @@
       <span class="amenidad">✓ Patio trasero</span>
       <span class="amenidad">✓ Antejardín</span>
     </div>
-    <!-- Mapa placeholder -->
-    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;height:140px;display:flex;align-items:center;justify-content:center;color:var(--muted);margin-top:.75rem;font-size:.85rem" role="img" aria-label="Ubicación en mapa">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;height:120px;display:flex;align-items:center;justify-content:center;color:var(--muted);margin-top:.75rem;font-size:.85rem">
       📍 Mapa — Sector El Milagro, La Serena
     </div>
     <div class="social-share">
-      <a href="#" class="btn btn-outline btn-sm" aria-label="Compartir en WhatsApp">WhatsApp</a>
-      <a href="#" class="btn btn-outline btn-sm" aria-label="Compartir en Facebook">Facebook</a>
-      <a href="#" class="btn btn-outline btn-sm" aria-label="Compartir en Twitter">Twitter</a>
+      <a href="#" class="btn btn-outline btn-sm">WhatsApp</a>
+      <a href="#" class="btn btn-outline btn-sm">Facebook</a>
     </div>
-    <button class="btn btn-primary w-100 mt-2" aria-label="Solicitar visita a esta propiedad">Solicitar Visita</button>
+    <button class="btn btn-primary w-100" style="margin-top:.75rem">Solicitar Visita</button>
   </div>
 </div>
 
-<div class="modal-overlay" id="modal2" role="dialog" aria-modal="true" aria-labelledby="modal2-title">
+<!-- Modal 2 - Departamento -->
+<div class="modal-overlay" id="modal2">
   <div class="modal">
-    <button class="modal-close" onclick="cerrarModal('modal2')" aria-label="Cerrar">✕</button>
+    <button class="modal-close" onclick="cerrarModal('modal2')">✕</button>
     <span class="prop-badge">Departamento</span>
-    <h2 id="modal2-title" style="font-family:'Playfair Display',serif;color:var(--accent);margin:.5rem 0">Centro, Coquimbo</h2>
-    <p class="text-muted" style="font-size:.82rem">Cód: D0238891 · Publicado: 20/03/2025</p>
-    <div class="prop-img-placeholder mt-2" style="height:200px;border-radius:8px" aria-label="Fotografía del departamento">🏢</div>
-    <div class="prop-details-grid mt-2">
+    <h2 style="font-family:'Playfair Display',serif;color:var(--accent);margin:.5rem 0">Centro, Coquimbo</h2>
+    <p style="color:var(--muted);font-size:.82rem">Cód: D0238891 · Publicado: 20/03/2025</p>
+    <div class="prop-img" style="height:200px;border-radius:8px;background:linear-gradient(135deg,#2e2b27,#3a3530);margin:.75rem 0">🏢</div>
+    <div class="prop-details-grid">
       <span>Precio</span><strong>$85.000.000</strong>
       <span>Precio UF</span><strong>UF 3.120</strong>
       <span>Dormitorios</span><strong>2</strong>
@@ -202,54 +160,50 @@
       <span class="amenidad">✓ Estacionamiento</span>
       <span class="amenidad">✓ Logia</span>
     </div>
-    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;height:140px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;margin-top:.75rem" role="img" aria-label="Mapa de ubicación">📍 Mapa — Centro, Coquimbo</div>
-    <div class="social-share">
-      <a href="javascript:compartirWhatsApp('Centro, Coquimbo', 'D0238891', '$85.000.000')" class="btn btn-outline btn-sm" aria-label="Compartir en WhatsApp">WhatsApp</a>
-      <a href="javascript:compartirFacebook('Centro, Coquimbo', 'D0238891')" class="btn btn-outline btn-sm" aria-label="Compartir en Facebook">Facebook</a>
-      <a href="javascript:compartirTwitter('Centro, Coquimbo', 'D0238891')" class="btn btn-outline btn-sm" aria-label="Compartir en Twitter">Twitter</a>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;height:120px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;margin-top:.75rem">
+      📍 Mapa — Centro, Coquimbo
     </div>
-    <button class="btn btn-primary w-100 mt-2">Solicitar Visita</button>
+    <div class="social-share">
+      <a href="#" class="btn btn-outline btn-sm">WhatsApp</a>
+      <a href="#" class="btn btn-outline btn-sm">Facebook</a>
+    </div>
+    <button class="btn btn-primary w-100" style="margin-top:.75rem">Solicitar Visita</button>
   </div>
 </div>
 
-<div class="modal-overlay" id="modal3" role="dialog" aria-modal="true" aria-labelledby="modal3-title">
+<!-- Modal 3 - Terreno -->
+<div class="modal-overlay" id="modal3">
   <div class="modal">
-    <button class="modal-close" onclick="cerrarModal('modal3')" aria-label="Cerrar">✕</button>
+    <button class="modal-close" onclick="cerrarModal('modal3')">✕</button>
     <span class="prop-badge">Terreno</span>
-    <h2 id="modal3-title" style="font-family:'Playfair Display',serif;color:var(--accent);margin:.5rem 0">Sector Centro, Ovalle</h2>
-    <p class="text-muted" style="font-size:.82rem">Cód: T0344120 · Publicado: 01/04/2025</p>
-    <div class="prop-img-placeholder mt-2" style="height:200px;border-radius:8px" aria-label="Fotografía del terreno">🌿</div>
-    <div class="prop-details-grid mt-2">
+    <h2 style="font-family:'Playfair Display',serif;color:var(--accent);margin:.5rem 0">Sector Centro, Ovalle</h2>
+    <p style="color:var(--muted);font-size:.82rem">Cód: T0344120 · Publicado: 01/04/2025</p>
+    <div class="prop-img" style="height:200px;border-radius:8px;background:linear-gradient(135deg,#3a3530,#4a4540);margin:.75rem 0">🌿</div>
+    <div class="prop-details-grid">
       <span>Precio</span><strong>$42.000.000</strong>
       <span>Precio UF</span><strong>UF 1.540</strong>
-      <span>Dormitorios</span><strong>—</strong>
-      <span>Baños</span><strong>—</strong>
       <span>Área Total</span><strong>500 m²</strong>
-      <span>Área Construida</span><strong>—</strong>
+      <span>Uso</span><strong>Mixto</strong>
     </div>
     <p style="color:var(--muted);font-size:.88rem;margin:.75rem 0">Terreno plano en excelente ubicación, apto para construcción residencial o comercial.</p>
-    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;height:140px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;margin-top:.75rem" role="img" aria-label="Mapa de ubicación">📍 Mapa — Centro, Ovalle</div>
-    <div class="social-share">
-      <a href="javascript:compartirWhatsApp('Sector Centro, Ovalle', 'T0344120', '$42.000.000')" class="btn btn-outline btn-sm" aria-label="Compartir en WhatsApp">WhatsApp</a>
-      <a href="javascript:compartirFacebook('Sector Centro, Ovalle', 'T0344120')" class="btn btn-outline btn-sm" aria-label="Compartir en Facebook">Facebook</a>
-      <a href="javascript:compartirTwitter('Sector Centro, Ovalle', 'T0344120')" class="btn btn-outline btn-sm" aria-label="Compartir en Twitter">Twitter</a>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;height:120px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem;margin-top:.75rem">
+      📍 Mapa — Centro, Ovalle
     </div>
-    <button class="btn btn-primary w-100 mt-2">Solicitar Visita</button>
+    <div class="social-share">
+      <a href="#" class="btn btn-outline btn-sm">WhatsApp</a>
+      <a href="#" class="btn btn-outline btn-sm">Facebook</a>
+    </div>
+    <button class="btn btn-primary w-100" style="margin-top:.75rem">Solicitar Visita</button>
   </div>
 </div>
 
-<footer role="contentinfo">
-  <div class="foot-links" aria-label="Enlaces del pie de página">
+<footer>
+  <div class="foot-links">
     <a href="registro-propietario.html">Registro Propietario</a>
     <a href="registro-gestor.html">Registro Gestor</a>
-    <a href="login.html">Panel Admin</a>
     <a href="login.html">Iniciar Sesión</a>
   </div>
-  <div class="social-icons" aria-label="Redes sociales">
-    <a href="#" aria-label="LinkedIn de PNK Inmobiliaria">in</a>
-    <a href="#" aria-label="Instagram de PNK Inmobiliaria">ig</a>
-  </div>
-  <p>© 2025 Todos los derechos reservados — <strong>PNK Inmobiliaria</strong></p>
+  <p>© 2025 PNK Inmobiliaria</p>
 </footer>
 
 <script>
@@ -261,31 +215,8 @@
     document.getElementById(id).classList.remove('open');
     document.body.style.overflow = '';
   }
-  // Funciones para compartir propiedades en redes sociales
-  function compartirWhatsApp(ubicacion, codigo, precio) {
-    // Crear mensaje personalizado para WhatsApp con detalles de la propiedad
-    const mensaje = `Hola, me interesa esta propiedad de PNK Inmobiliaria:%0A%0AUbicación: ${ubicacion}%0ACódigo: ${codigo}%0APrecio: ${precio}%0A%0A¿Más información?`;
-    // Abrir WhatsApp Web con el mensaje preformateado
-    window.open(`https://wa.me/?text=${mensaje}`, '_blank');
-  }
-
-  function compartirFacebook(ubicacion, codigo) {
-    // Obtener la URL actual de la página
-    const url = window.location.href;
-    // Abrir Facebook Share con la URL y descripción de la propiedad
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=Propiedad en ${ubicacion} - ${codigo}`, '_blank');
-  }
-
-  function compartirTwitter(ubicacion, codigo) {
-    // Crear texto para tweet con hashtags relevantes
-    const texto = `Encontré esta propiedad en PNK Inmobiliaria: ${ubicacion} (${codigo}) #Inmobiliario #Coquimbo`;
-    // Abrir Twitter con el texto y URL de la página
-    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(texto)}&url=${encodeURIComponent(window.location.href)}`, '_blank');
-  }
-
-  // Cerrar modales al hacer clic fuera de ellos
   document.querySelectorAll('.modal-overlay').forEach(m => {
-    m.addEventListener('click', e => { if(e.target === m) cerrarModal(m.id); });
+    m.addEventListener('click', e => { if (e.target === m) cerrarModal(m.id); });
   });
 </script>
 </body>
