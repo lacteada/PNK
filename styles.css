@@ -54,7 +54,8 @@ nav a:hover { color: var(--accent); background: rgba(200,169,110,.1); }
 .grid-3 { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
 .prop-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; transition: .2s; }
 .prop-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,.4); }
-.prop-img { width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+.prop-img { width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; overflow: hidden; }
+.prop-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .prop-body { padding: 1rem; }
 .prop-badge { display: inline-block; background: rgba(200,169,110,.15); color: var(--accent); font-size: .75rem; padding: .2rem .6rem; border-radius: 4px; margin-bottom: .5rem; font-weight: 500; }
 .prop-code { color: var(--muted); font-size: .78rem; margin-bottom: .25rem; }

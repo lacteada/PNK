@@ -87,7 +87,7 @@
     <h2 class="section-title">Propiedades Recientes</h2>
     <div class="grid-3">
       <div class="prop-card">
-        <div class="prop-img" style="background:linear-gradient(135deg,#1a1610,#2e2b27)">🏠</div>
+        <div class="prop-img"><img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80" alt="Casa" /></div>
         <div class="prop-body">
           <span class="prop-badge">Casa</span>
           <p class="prop-code">Cód: C0123456</p>
@@ -101,7 +101,7 @@
         </div>
       </div>
       <div class="prop-card">
-        <div class="prop-img" style="background:linear-gradient(135deg,#2e2b27,#3a3530)">🏢</div>
+        <div class="prop-img"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Departamento" /></div>
         <div class="prop-body">
           <span class="prop-badge">Departamento</span>
           <p class="prop-code">Cód: C0123457</p>
@@ -115,7 +115,7 @@
         </div>
       </div>
       <div class="prop-card">
-        <div class="prop-img" style="background:linear-gradient(135deg,#3a3530,#4a4540)">🌳</div>
+        <div class="prop-img"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80" alt="Terreno" /></div>
         <div class="prop-body">
           <span class="prop-badge">Terreno</span>
           <p class="prop-code">Cód: C0123458</p>
@@ -255,7 +255,7 @@
     <span class="prop-badge" id="detalle-tipo">Propiedad</span>
     <h2 style="font-family:'Playfair Display',serif;color:var(--accent);margin:.5rem 0" id="detalle-titulo">Detalle de la propiedad</h2>
     <p style="color:var(--muted);font-size:.82rem" id="detalle-codigo">Cód: — · Publicado: —</p>
-    <div class="prop-img" id="detalle-visual" style="height:200px;border-radius:8px;background:linear-gradient(135deg,#1a1610,#2e2b27);margin:.75rem 0">🏠</div>
+    <div class="prop-img" id="detalle-visual" style="height:200px;border-radius:8px;margin:.75rem 0"><img src="" alt="Imagen de propiedad" /></div>
     <div class="prop-details-grid">
       <span>Precio</span><strong id="detalle-precio">—</strong>
       <span>Precio UF</span><strong id="detalle-precio-uf">—</strong>
@@ -328,7 +328,8 @@
       construida: '120 m²',
       terreno: '210 m²',
       descripcion: 'Casa familiar con terraza, jardín y ubicación estratégica en La Serena.',
-      amenidades: ['✓ Estacionamiento', '✓ Bodega', '✓ Patio']
+      amenidades: ['✓ Estacionamiento', '✓ Bodega', '✓ Patio'],
+      imagen: 'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80'
     },
     C0123457: {
       tipo: 'Departamento',
@@ -342,7 +343,8 @@
       construida: '65 m²',
       terreno: '—',
       descripcion: 'Departamento céntrico con buena luminosidad y acceso a comercio y transporte.',
-      amenidades: ['✓ Logia', '✓ Ascensor', '✓ Seguridad']
+      amenidades: ['✓ Logia', '✓ Ascensor', '✓ Seguridad'],
+      imagen: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80'
     },
     C0123458: {
       tipo: 'Terreno',
@@ -356,7 +358,8 @@
       construida: '—',
       terreno: '500 m²',
       descripcion: 'Terreno amplio y plano ideal para construcción residencial o comercial.',
-      amenidades: ['✓ Ubicación urbana', '✓ Zona tranquila', '✓ Fácil acceso']
+      amenidades: ['✓ Ubicación urbana', '✓ Zona tranquila', '✓ Fácil acceso'],
+      imagen: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80'
     }
   };
 
@@ -383,6 +386,11 @@
     document.getElementById('detalle-construida').textContent = prop.construida;
     document.getElementById('detalle-terreno').textContent = prop.terreno;
     document.getElementById('detalle-descripcion').textContent = prop.descripcion;
+    const detalleImg = document.getElementById('detalle-visual').querySelector('img');
+    if (detalleImg) {
+      detalleImg.src = prop.imagen;
+      detalleImg.alt = prop.titulo;
+    }
     const amenidades = document.getElementById('detalle-amenidades');
     amenidades.innerHTML = '';
     prop.amenidades.forEach(item => {

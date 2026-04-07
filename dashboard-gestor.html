@@ -87,7 +87,7 @@
     <h2 class="section-title">Propiedades Disponibles</h2>
     <div class="grid-3">
       <div class="prop-card">
-        <div class="prop-img" style="background:linear-gradient(135deg,#1a1610,#2e2b27)">🏠</div>
+        <div class="prop-img"><img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80" alt="Casa" /></div>
         <div class="prop-body">
           <span class="prop-badge">Casa</span>
           <p class="prop-code">Cód: C0123498</p>
@@ -100,7 +100,7 @@
         </div>
       </div>
       <div class="prop-card">
-        <div class="prop-img" style="background:linear-gradient(135deg,#2e2b27,#3a3530)">🏢</div>
+        <div class="prop-img"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Departamento" /></div>
         <div class="prop-body">
           <span class="prop-badge">Departamento</span>
           <p class="prop-code">Cód: C0123499</p>
@@ -113,7 +113,7 @@
         </div>
       </div>
       <div class="prop-card">
-        <div class="prop-img" style="background:linear-gradient(135deg,#3a3530,#4a4540)">🌾</div>
+        <div class="prop-img"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80" alt="Terreno" /></div>
         <div class="prop-body">
           <span class="prop-badge">Terreno</span>
           <p class="prop-code">Cód: C0123500</p>
@@ -244,7 +244,7 @@
     <span class="prop-badge" id="gestor-detalle-tipo">Propiedad</span>
     <h2 style="font-family:'Playfair Display',serif;color:var(--accent);margin:.5rem 0" id="gestor-detalle-titulo">Detalle</h2>
     <p style="color:var(--muted);font-size:.82rem" id="gestor-detalle-codigo">Cód: — · Publicado: —</p>
-    <div class="prop-img" id="gestor-detalle-visual" style="height:200px;border-radius:8px;background:linear-gradient(135deg,#1a1610,#2e2b27);margin:.75rem 0">🏠</div>
+    <div class="prop-img" id="gestor-detalle-visual" style="height:200px;border-radius:8px;margin:.75rem 0"><img src="" alt="Imagen de propiedad" /></div>
     <div class="prop-details-grid">
       <span>Precio</span><strong id="gestor-detalle-precio">—</strong>
       <span>Precio UF</span><strong id="gestor-detalle-precio-uf">—</strong>
@@ -318,7 +318,8 @@
       construida: '130 m²',
       terreno: '250 m²',
       descripcion: 'Casa equipada para familias, con buena conectividad y patio amplio.',
-      amenidades: ['✓ Estacionamiento', '✓ Parrilla', '✓ Bodega']
+      amenidades: ['✓ Estacionamiento', '✓ Parrilla', '✓ Bodega'],
+      imagen: 'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80'
     },
     C0123499: {
       tipo: 'Departamento',
@@ -332,7 +333,8 @@
       construida: '75 m²',
       terreno: '—',
       descripcion: 'Departamento moderno cerca de comercio y transporte público.',
-      amenidades: ['✓ Ascensor', '✓ Estacionamiento', '✓ Logia']
+      amenidades: ['✓ Ascensor', '✓ Estacionamiento', '✓ Logia'],
+      imagen: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80'
     },
     C0123500: {
       tipo: 'Terreno',
@@ -346,7 +348,8 @@
       construida: '—',
       terreno: '520 m²',
       descripcion: 'Terreno industrial cercano a accesos principales y con posibilidad de desarrollo mixto.',
-      amenidades: ['✓ Zona industrial', '✓ Terreno plano', '✓ Conectividad']
+      amenidades: ['✓ Zona industrial', '✓ Terreno plano', '✓ Conectividad'],
+      imagen: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80'
     }
   };
 
@@ -374,6 +377,11 @@
     document.getElementById('gestor-detalle-construida').textContent = prop.construida;
     document.getElementById('gestor-detalle-terreno').textContent = prop.terreno;
     document.getElementById('gestor-detalle-descripcion').textContent = prop.descripcion;
+    const detalleImg = document.getElementById('gestor-detalle-visual').querySelector('img');
+    if (detalleImg) {
+      detalleImg.src = prop.imagen;
+      detalleImg.alt = prop.titulo;
+    }
     const amenidades = document.getElementById('gestor-detalle-amenidades');
     amenidades.innerHTML = '';
     prop.amenidades.forEach(item => {
