@@ -26,6 +26,7 @@
         <div>
           <p style="font-size:.82rem;color:var(--muted)">PENKA_ID: <strong>PNK-2024-001</strong></p>
           <p style="font-weight:600">Gestor Inmobiliario</p>
+          <p style="font-size:.82rem;color:var(--muted)">Cuenta activa: ya puedes captar propiedades, ofrecer inmuebles y registrar propietarios vendedores.</p>
         </div>
       </div>
       <a href="login.html" class="btn btn-outline btn-sm">Cerrar Sesión</a>
@@ -61,25 +62,25 @@
 
     <h2 class="section-title">Herramientas de Trabajo</h2>
     <div class="dash-cards">
-      <a href="#" class="dash-card">
+      <a href="#" class="dash-card" onclick="abrirModal('modal-captar-gestor'); return false;">
         <div class="icon">🔍</div>
-        <h3>Buscar Propiedades</h3>
-        <p>Encuentra inmuebles para tus clientes</p>
+        <h3>Captar Propiedad</h3>
+        <p>Ingresa una propiedad para la comunidad</p>
       </a>
-      <a href="#" class="dash-card">
+      <a href="#" class="dash-card" onclick="abrirModal('modal-antecedentes-gestor'); return false;">
         <div class="icon">📋</div>
-        <h3>Mis Captaciones</h3>
-        <p>Administra tus propiedades en proceso</p>
+        <h3>Subir Antecedentes</h3>
+        <p>Registra al propietario vendedor</p>
       </a>
-      <a href="#" class="dash-card">
+      <a href="#" class="dash-card" onclick="abrirModal('modal-propiedades-gestor'); return false;">
         <div class="icon">👥</div>
-        <h3>Mis Clientes</h3>
-        <p>Base de datos de compradores interesados</p>
+        <h3>Ofertar Propiedad</h3>
+        <p>Ofrece inmuebles disponibles</p>
       </a>
-      <a href="#" class="dash-card">
+      <a href="#" class="dash-card" onclick="abrirModal('modal-reportes-gestor'); return false;">
         <div class="icon">📊</div>
         <h3>Reportes</h3>
-        <p>Comisiones, estadísticas y rendimiento</p>
+        <p>Comisiones y rendimiento</p>
       </a>
     </div>
 
@@ -92,7 +93,10 @@
           <p class="prop-code">Cód: C0123498</p>
           <p class="prop-title">Casa Vicuña - 3 dorms</p>
           <p class="prop-price">$95.000.000 <small>UF 2.750</small></p>
-          <span class="badge badge-active">Disponible</span>
+          <div class="card-actions">
+            <button class="btn btn-outline btn-sm" type="button" onclick="mostrarDetalleGestor('C0123498')">Ver detalle</button>
+            <button class="btn btn-primary btn-sm" type="button" onclick="ofertarPropiedad('C0123498')">Ofertar</button>
+          </div>
         </div>
       </div>
       <div class="prop-card">
@@ -102,7 +106,10 @@
           <p class="prop-code">Cód: C0123499</p>
           <p class="prop-title">Depto. La Serena Centro</p>
           <p class="prop-price">$55.000.000 <small>UF 1.600</small></p>
-          <span class="badge badge-active">Disponible</span>
+          <div class="card-actions">
+            <button class="btn btn-outline btn-sm" type="button" onclick="mostrarDetalleGestor('C0123499')">Ver detalle</button>
+            <button class="btn btn-primary btn-sm" type="button" onclick="ofertarPropiedad('C0123499')">Ofertar</button>
+          </div>
         </div>
       </div>
       <div class="prop-card">
@@ -112,13 +119,181 @@
           <p class="prop-code">Cód: C0123500</p>
           <p class="prop-title">Terreno Industrial Ovalle</p>
           <p class="prop-price">$180.000.000 <small>UF 5.200</small></p>
-          <span class="badge badge-pending">En proceso</span>
+          <div class="card-actions">
+            <button class="btn btn-outline btn-sm" type="button" onclick="mostrarDetalleGestor('C0123500')">Ver detalle</button>
+            <button class="btn btn-primary btn-sm" type="button" onclick="ofertarPropiedad('C0123500')">Ofertar</button>
+          </div>
         </div>
       </div>
     </div>
 
   </div>
 </main>
+
+<!-- Modal Captar Propiedad -->
+<div class="modal-overlay" id="modal-captar-gestor">
+  <div class="modal">
+    <button class="modal-close" onclick="cerrarModal('modal-captar-gestor')">✕</button>
+    <h3 style="font-family:'Playfair Display',serif;color:var(--accent);margin-bottom:1.25rem">Captar Propiedad</h3>
+    <form id="form-captar-gestor">
+      <div class="form-group">
+        <label>Nombre del Propietario</label>
+        <input type="text" id="captar-nombre" placeholder="Nombre completo" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>RUT</label>
+          <input type="text" id="captar-rut" placeholder="12.345.678-9" required>
+        </div>
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="tel" id="captar-telefono" placeholder="+56 9 1234 5678" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Tipo de Inmueble</label>
+        <select id="captar-tipo" required>
+          <option value="">Seleccionar</option>
+          <option>Casa</option>
+          <option>Departamento</option>
+          <option>Terreno</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Sector</label>
+        <input type="text" id="captar-sector" placeholder="Ej: El Milagro" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Precio</label>
+          <input type="number" id="captar-precio" placeholder="95000000" required>
+        </div>
+        <div class="form-group">
+          <label>Precio UF</label>
+          <input type="number" id="captar-precio-uf" placeholder="2750" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Comentarios adicionales</label>
+        <textarea id="captar-descripcion" rows="3" placeholder="Antecedentes del inmueble..."></textarea>
+      </div>
+      <div style="display:flex;gap:.75rem">
+        <button type="submit" class="btn btn-primary" style="flex:1">Enviar Captación</button>
+        <button type="button" class="btn btn-outline" onclick="cerrarModal('modal-captar-gestor')">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal Subir Antecedentes -->
+<div class="modal-overlay" id="modal-antecedentes-gestor">
+  <div class="modal" style="max-width:520px">
+    <button class="modal-close" onclick="cerrarModal('modal-antecedentes-gestor')">✕</button>
+    <h3 style="font-family:'Playfair Display',serif;color:var(--accent);margin-bottom:1.25rem">Antecedentes del Propietario</h3>
+    <form id="form-antecedentes-gestor">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" id="vendedor-nombre" placeholder="Nombre completo" required>
+        </div>
+        <div class="form-group">
+          <label>RUT</label>
+          <input type="text" id="vendedor-rut" placeholder="12.345.678-9" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Correo</label>
+          <input type="email" id="vendedor-correo" placeholder="correo@ejemplo.com" required>
+        </div>
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="tel" id="vendedor-telefono" placeholder="+56 9 1234 5678" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Tipo de Propiedad</label>
+        <select id="vendedor-tipo" required>
+          <option value="">Seleccionar</option>
+          <option>Casa</option>
+          <option>Departamento</option>
+          <option>Terreno</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Sector / Dirección</label>
+        <input type="text" id="vendedor-sector" placeholder="Ej: La Serena" required>
+      </div>
+      <div class="form-group">
+        <label>Documentos</label>
+        <input type="file" id="vendedor-documentos" accept=".pdf,.jpg,.png" multiple>
+        <small style="color:var(--muted);font-size:.78rem">Adjunta antecedentes del inmueble y del propietario.</small>
+      </div>
+      <div style="display:flex;gap:.75rem">
+        <button type="submit" class="btn btn-primary" style="flex:1">Guardar Antecedentes</button>
+        <button type="button" class="btn btn-outline" onclick="cerrarModal('modal-antecedentes-gestor')">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal Detalle de Propiedad -->
+<div class="modal-overlay" id="modal-detalle-gestor">
+  <div class="modal">
+    <button class="modal-close" onclick="cerrarModal('modal-detalle-gestor')">✕</button>
+    <span class="prop-badge" id="gestor-detalle-tipo">Propiedad</span>
+    <h2 style="font-family:'Playfair Display',serif;color:var(--accent);margin:.5rem 0" id="gestor-detalle-titulo">Detalle</h2>
+    <p style="color:var(--muted);font-size:.82rem" id="gestor-detalle-codigo">Cód: — · Publicado: —</p>
+    <div class="prop-img" id="gestor-detalle-visual" style="height:200px;border-radius:8px;background:linear-gradient(135deg,#1a1610,#2e2b27);margin:.75rem 0">🏠</div>
+    <div class="prop-details-grid">
+      <span>Precio</span><strong id="gestor-detalle-precio">—</strong>
+      <span>Precio UF</span><strong id="gestor-detalle-precio-uf">—</strong>
+      <span>Dormitorios</span><strong id="gestor-detalle-dormitorios">—</strong>
+      <span>Baños</span><strong id="gestor-detalle-banos">—</strong>
+      <span>Área Construida</span><strong id="gestor-detalle-construida">—</strong>
+      <span>Área Terreno</span><strong id="gestor-detalle-terreno">—</strong>
+    </div>
+    <p style="color:var(--muted);font-size:.88rem;margin:.75rem 0" id="gestor-detalle-descripcion">Descripción del inmueble.</p>
+    <div class="amenidades" id="gestor-detalle-amenidades">
+      <span class="amenidad">✓ Amenidad</span>
+    </div>
+    <button class="btn btn-primary w-100" style="margin-top:.75rem" type="button" onclick="ofertarPropiedad(currentGestorDetalle)">Ofertar esta propiedad</button>
+  </div>
+</div>
+
+<!-- Modal Ofertas Gestor -->
+<div class="modal-overlay" id="modal-propiedades-gestor">
+  <div class="modal" style="max-width:460px">
+    <button class="modal-close" onclick="cerrarModal('modal-propiedades-gestor')">✕</button>
+    <h3 style="font-family:'Playfair Display',serif;color:var(--accent);margin-bottom:1.25rem">Propiedades para Ofertar</h3>
+    <p style="color:var(--muted);font-size:.9rem;line-height:1.5">Selecciona cualquier inmueble disponible en la plataforma para ofrecerlo a tu red de clientes.</p>
+    <ul style="margin-top:1rem;color:var(--text);font-size:.92rem;line-height:1.5">
+      <li>🏠 Casa Vicuña — C0123498</li>
+      <li>🏢 Depto. La Serena Centro — C0123499</li>
+      <li>🌾 Terreno Industrial Ovalle — C0123500</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Modal Reportes Gestor -->
+<div class="modal-overlay" id="modal-reportes-gestor">
+  <div class="modal" style="max-width:460px">
+    <button class="modal-close" onclick="cerrarModal('modal-reportes-gestor')">✕</button>
+    <h3 style="font-family:'Playfair Display',serif;color:var(--accent);margin-bottom:1.25rem">Reportes del Gestor</h3>
+    <p style="color:var(--muted);font-size:.9rem;line-height:1.5">Tus captaciones y comisiones se muestran aquí. Si una propiedad se vende gestionada por ti, recibirás la comisión correspondiente.</p>
+    <div style="margin-top:1rem;display:grid;gap:.75rem">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem">
+        <strong>Captaciones</strong><p style="margin:.5rem 0 0;color:var(--muted)">8 propiedades captadas</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem">
+        <strong>Comisiones</strong><p style="margin:.5rem 0 0;color:var(--muted)">$2.4M acumulados</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem">
+        <strong>Penka ID</strong><p style="margin:.5rem 0 0;color:var(--muted)">PNK-2024-001</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer>
   <div class="foot-links">
@@ -128,5 +303,113 @@
   </div>
   <p>© 2025 PNK Inmobiliaria</p>
 </footer>
+<script>
+  let currentGestorDetalle = '';
+  const propiedadesGestor = {
+    C0123498: {
+      tipo: 'Casa',
+      titulo: 'Casa Vicuña - 3 dorms',
+      codigo: 'C0123498',
+      publicado: '12/04/2025',
+      precio: '$95.000.000',
+      uf: 'UF 2.750',
+      dormitorios: '3',
+      banos: '2',
+      construida: '130 m²',
+      terreno: '250 m²',
+      descripcion: 'Casa equipada para familias, con buena conectividad y patio amplio.',
+      amenidades: ['✓ Estacionamiento', '✓ Parrilla', '✓ Bodega']
+    },
+    C0123499: {
+      tipo: 'Departamento',
+      titulo: 'Depto. La Serena Centro',
+      codigo: 'C0123499',
+      publicado: '18/04/2025',
+      precio: '$55.000.000',
+      uf: 'UF 1.600',
+      dormitorios: '2',
+      banos: '1',
+      construida: '75 m²',
+      terreno: '—',
+      descripcion: 'Departamento moderno cerca de comercio y transporte público.',
+      amenidades: ['✓ Ascensor', '✓ Estacionamiento', '✓ Logia']
+    },
+    C0123500: {
+      tipo: 'Terreno',
+      titulo: 'Terreno Industrial Ovalle',
+      codigo: 'C0123500',
+      publicado: '05/04/2025',
+      precio: '$180.000.000',
+      uf: 'UF 5.200',
+      dormitorios: '—',
+      banos: '—',
+      construida: '—',
+      terreno: '520 m²',
+      descripcion: 'Terreno industrial cercano a accesos principales y con posibilidad de desarrollo mixto.',
+      amenidades: ['✓ Zona industrial', '✓ Terreno plano', '✓ Conectividad']
+    }
+  };
+
+  function abrirModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function cerrarModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function mostrarDetalleGestor(codigo) {
+    const prop = propiedadesGestor[codigo];
+    if (!prop) return;
+    currentGestorDetalle = codigo;
+    document.getElementById('gestor-detalle-tipo').textContent = prop.tipo;
+    document.getElementById('gestor-detalle-titulo').textContent = prop.titulo;
+    document.getElementById('gestor-detalle-codigo').textContent = `Cód: ${prop.codigo} · Publicado: ${prop.publicado}`;
+    document.getElementById('gestor-detalle-precio').textContent = prop.precio;
+    document.getElementById('gestor-detalle-precio-uf').textContent = prop.uf;
+    document.getElementById('gestor-detalle-dormitorios').textContent = prop.dormitorios;
+    document.getElementById('gestor-detalle-banos').textContent = prop.banos;
+    document.getElementById('gestor-detalle-construida').textContent = prop.construida;
+    document.getElementById('gestor-detalle-terreno').textContent = prop.terreno;
+    document.getElementById('gestor-detalle-descripcion').textContent = prop.descripcion;
+    const amenidades = document.getElementById('gestor-detalle-amenidades');
+    amenidades.innerHTML = '';
+    prop.amenidades.forEach(item => {
+      const span = document.createElement('span');
+      span.className = 'amenidad';
+      span.textContent = item;
+      amenidades.appendChild(span);
+    });
+    abrirModal('modal-detalle-gestor');
+  }
+
+  function ofertarPropiedad(codigo) {
+    if (!codigo) {
+      alert('Selecciona primero una propiedad para ofertar.');
+      return;
+    }
+    if (confirm(`¿Quieres ofertar la propiedad ${codigo}?`)) {
+      alert(`La propiedad ${codigo} quedó disponible para ofertar. Se notificará si se concreta comisión.`);
+    }
+  }
+
+  document.getElementById('form-captar-gestor').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Captación registrada. Cuando el propietario sea aprobado, recibirás un PENKA_ID activo para ofertarla.');
+    cerrarModal('modal-captar-gestor');
+  });
+
+  document.getElementById('form-antecedentes-gestor').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Antecedentes del vendedor guardados. El Gestor puede ofrecer el inmueble en la plataforma.');
+    cerrarModal('modal-antecedentes-gestor');
+  });
+
+  document.querySelectorAll('.modal-overlay').forEach(m => {
+    m.addEventListener('click', e => { if (e.target === m) cerrarModal(m.id); });
+  });
+</script>
 </body>
 </html>

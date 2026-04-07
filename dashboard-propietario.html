@@ -26,6 +26,7 @@
         <div>
           <p style="font-size:.82rem;color:var(--muted)">Bienvenido</p>
           <p style="font-weight:600">Propietario PNK</p>
+          <p style="font-size:.82rem;color:var(--muted)">Puedes modificar, eliminar e ingresar antecedentes de tus propiedades desde este panel.</p>
         </div>
       </div>
       <a href="login.html" class="btn btn-outline btn-sm">Cerrar Sesión</a>
@@ -61,25 +62,25 @@
 
     <h2 class="section-title">Gestión de Propiedades</h2>
     <div class="dash-cards">
-      <a href="#" class="dash-card">
+      <a href="#" class="dash-card" onclick="abrirModal('modal-nueva-propiedad'); return false;">
         <div class="icon">➕</div>
         <h3>Publicar Propiedad</h3>
-        <p>Agrega una nueva propiedad</p>
+        <p>Sube todos los antecedentes del inmueble</p>
       </a>
-      <a href="#" class="dash-card">
+      <a href="#" class="dash-card" onclick="abrirModal('modal-mis-propiedades'); return false;">
         <div class="icon">📋</div>
         <h3>Mis Propiedades</h3>
-        <p>Administra tus inmuebles publicados</p>
+        <p>Modificar, eliminar o ver detalle</p>
       </a>
-      <a href="#" class="dash-card">
+      <a href="#" class="dash-card" onclick="abrirModal('modal-solicitudes-propiedades'); return false;">
         <div class="icon">📅</div>
         <h3>Solicitudes de Visita</h3>
-        <p>Revisa y responde consultas</p>
+        <p>Revisa los interesados rápidamente</p>
       </a>
-      <a href="#" class="dash-card">
+      <a href="#" class="dash-card" onclick="abrirModal('modal-reportes-propiedades'); return false;">
         <div class="icon">📊</div>
         <h3>Reportes</h3>
-        <p>Estadísticas de rendimiento</p>
+        <p>Controla el estado y rendimiento</p>
       </a>
     </div>
 
@@ -92,6 +93,11 @@
           <p class="prop-code">Cód: C0123456</p>
           <p class="prop-title">Casa en La Serena</p>
           <p class="prop-price">$85.000.000 <small>UF 2.450</small></p>
+          <div class="card-actions">
+            <button class="btn btn-outline btn-sm" type="button" onclick="mostrarDetalle('C0123456')">Ver detalle</button>
+            <button class="btn btn-primary btn-sm" type="button" onclick="editarPropiedad('C0123456')">Editar</button>
+          </div>
+          <button class="btn btn-danger btn-sm" type="button" style="margin-top:.65rem" onclick="eliminarPropiedad('C0123456')">Eliminar</button>
         </div>
       </div>
       <div class="prop-card">
@@ -101,6 +107,11 @@
           <p class="prop-code">Cód: C0123457</p>
           <p class="prop-title">Depto. Centro Coquimbo</p>
           <p class="prop-price">$45.000.000 <small>UF 1.300</small></p>
+          <div class="card-actions">
+            <button class="btn btn-outline btn-sm" type="button" onclick="mostrarDetalle('C0123457')">Ver detalle</button>
+            <button class="btn btn-primary btn-sm" type="button" onclick="editarPropiedad('C0123457')">Editar</button>
+          </div>
+          <button class="btn btn-danger btn-sm" type="button" style="margin-top:.65rem" onclick="eliminarPropiedad('C0123457')">Eliminar</button>
         </div>
       </div>
       <div class="prop-card">
@@ -110,12 +121,190 @@
           <p class="prop-code">Cód: C0123458</p>
           <p class="prop-title">Terreno Ovalle</p>
           <p class="prop-price">$120.000.000 <small>UF 3.500</small></p>
+          <div class="card-actions">
+            <button class="btn btn-outline btn-sm" type="button" onclick="mostrarDetalle('C0123458')">Ver detalle</button>
+            <button class="btn btn-primary btn-sm" type="button" onclick="editarPropiedad('C0123458')">Editar</button>
+          </div>
+          <button class="btn btn-danger btn-sm" type="button" style="margin-top:.65rem" onclick="eliminarPropiedad('C0123458')">Eliminar</button>
         </div>
       </div>
     </div>
 
   </div>
 </main>
+
+<!-- Modal Nueva Propiedad -->
+<div class="modal-overlay" id="modal-nueva-propiedad">
+  <div class="modal">
+    <button class="modal-close" onclick="cerrarModal('modal-nueva-propiedad')">✕</button>
+    <h3 style="font-family:'Playfair Display',serif;color:var(--accent);margin-bottom:1.25rem">Nueva Propiedad</h3>
+    <form id="form-nueva-propiedad">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Código</label>
+          <input type="text" id="nuevo-codigo" placeholder="C0129999" required>
+        </div>
+        <div class="form-group">
+          <label>Tipo</label>
+          <select id="nuevo-tipo" required>
+            <option value="">Seleccionar</option>
+            <option>Casa</option>
+            <option>Departamento</option>
+            <option>Terreno</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Dirección / Sector</label>
+        <input type="text" id="nuevo-sector" placeholder="Ej: El Milagro, La Serena" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Precio</label>
+          <input type="number" id="nuevo-precio" placeholder="85000000" required>
+        </div>
+        <div class="form-group">
+          <label>Precio UF</label>
+          <input type="number" id="nuevo-precio-uf" placeholder="2450" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Dormitorios</label>
+          <input type="number" id="nuevo-dormitorios" placeholder="3" required>
+        </div>
+        <div class="form-group">
+          <label>Baños</label>
+          <input type="number" id="nuevo-banos" placeholder="2" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Área Construida</label>
+          <input type="text" id="nuevo-construida" placeholder="120 m²" required>
+        </div>
+        <div class="form-group">
+          <label>Área Terreno</label>
+          <input type="text" id="nuevo-terreno" placeholder="210 m²" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Descripción</label>
+        <textarea id="nuevo-descripcion" rows="3" placeholder="Describe la propiedad..." required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Fotografías</label>
+        <input type="file" id="nuevo-fotos" multiple accept="image/*">
+        <small style="color:var(--muted);font-size:.78rem">Selecciona hasta 5 imágenes.</small>
+      </div>
+      <div style="display:flex;gap:.75rem">
+        <button type="submit" class="btn btn-primary" style="flex:1">Guardar Propiedad</button>
+        <button type="button" class="btn btn-outline" onclick="cerrarModal('modal-nueva-propiedad')">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal Editar Propiedad -->
+<div class="modal-overlay" id="modal-editar-propiedad">
+  <div class="modal" style="max-width:460px">
+    <button class="modal-close" onclick="cerrarModal('modal-editar-propiedad')">✕</button>
+    <h3 style="font-family:'Playfair Display',serif;color:var(--accent);margin-bottom:1.25rem">Editar Propiedad</h3>
+    <form id="form-editar-propiedad">
+      <input type="hidden" id="editar-codigo">
+      <div class="form-group">
+        <label>Dirección / Sector</label>
+        <input type="text" id="editar-sector" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Precio</label>
+          <input type="number" id="editar-precio" required>
+        </div>
+        <div class="form-group">
+          <label>Precio UF</label>
+          <input type="number" id="editar-precio-uf" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Dormitorios</label>
+          <input type="number" id="editar-dormitorios" required>
+        </div>
+        <div class="form-group">
+          <label>Baños</label>
+          <input type="number" id="editar-banos" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Descripción</label>
+        <textarea id="editar-descripcion" rows="3" required></textarea>
+      </div>
+      <div style="display:flex;gap:.75rem;margin-top:1rem">
+        <button type="submit" class="btn btn-primary" style="flex:1">Guardar</button>
+        <button type="button" class="btn btn-outline" onclick="cerrarModal('modal-editar-propiedad')">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal Detalle de Propiedad -->
+<div class="modal-overlay" id="modal-detalle-propiedad">
+  <div class="modal">
+    <button class="modal-close" onclick="cerrarModal('modal-detalle-propiedad')">✕</button>
+    <span class="prop-badge" id="detalle-tipo">Propiedad</span>
+    <h2 style="font-family:'Playfair Display',serif;color:var(--accent);margin:.5rem 0" id="detalle-titulo">Detalle de la propiedad</h2>
+    <p style="color:var(--muted);font-size:.82rem" id="detalle-codigo">Cód: — · Publicado: —</p>
+    <div class="prop-img" id="detalle-visual" style="height:200px;border-radius:8px;background:linear-gradient(135deg,#1a1610,#2e2b27);margin:.75rem 0">🏠</div>
+    <div class="prop-details-grid">
+      <span>Precio</span><strong id="detalle-precio">—</strong>
+      <span>Precio UF</span><strong id="detalle-precio-uf">—</strong>
+      <span>Dormitorios</span><strong id="detalle-dormitorios">—</strong>
+      <span>Baños</span><strong id="detalle-banos">—</strong>
+      <span>Área Construida</span><strong id="detalle-construida">—</strong>
+      <span>Área Terreno</span><strong id="detalle-terreno">—</strong>
+    </div>
+    <p style="color:var(--muted);font-size:.88rem;margin:.75rem 0" id="detalle-descripcion">Descripción del inmueble.</p>
+    <div class="amenidades" id="detalle-amenidades">
+      <span class="amenidad">✓ Amenidad ejemplo</span>
+    </div>
+    <button class="btn btn-primary w-100" style="margin-top:.75rem" type="button" onclick="alert('Acción de seguimiento disponible en backend')">Solicitar Visita</button>
+  </div>
+</div>
+
+<!-- Modal Solicitudes de Visita -->
+<div class="modal-overlay" id="modal-solicitudes-propiedades">
+  <div class="modal" style="max-width:460px">
+    <button class="modal-close" onclick="cerrarModal('modal-solicitudes-propiedades')">✕</button>
+    <h3 style="font-family:'Playfair Display',serif;color:var(--accent);margin-bottom:1.25rem">Solicitudes de Visita</h3>
+    <p style="color:var(--muted);font-size:.9rem;line-height:1.5">Aquí puedes revisar las visitas que tus clientes han solicitado. En esta versión demostrativa, el flujo está listo para integrarse con un backend real.</p>
+    <ul style="margin-top:1rem;color:var(--text);font-size:.92rem;line-height:1.5">
+      <li>🗓️ Solicitud para Casa en La Serena — pendiente</li>
+      <li>🗓️ Solicitud para Depto. Centro Coquimbo — confirmada</li>
+      <li>🗓️ Solicitud para Terreno Ovalle — en revisión</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Modal Reportes -->
+<div class="modal-overlay" id="modal-reportes-propiedades">
+  <div class="modal" style="max-width:460px">
+    <button class="modal-close" onclick="cerrarModal('modal-reportes-propiedades')">✕</button>
+    <h3 style="font-family:'Playfair Display',serif;color:var(--accent);margin-bottom:1.25rem">Reportes de Propiedades</h3>
+    <p style="color:var(--muted);font-size:.9rem;line-height:1.5">Tus inmuebles pueden reflejar vistas, solicitudes y cotizaciones. Aquí tienes un resumen de tu rendimiento.</p>
+    <div style="margin-top:1rem;display:grid;gap:.75rem">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem">
+        <strong>Visitas</strong><p style="margin:.5rem 0 0;color:var(--muted)">24 solicitudes este mes</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem">
+        <strong>Interesados</strong><p style="margin:.5rem 0 0;color:var(--muted)">12 contactos activos</p>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1rem">
+        <strong>Inmuebles</strong><p style="margin:.5rem 0 0;color:var(--muted)">3 propiedades publicadas</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer>
   <div class="foot-links">
@@ -125,5 +314,120 @@
   </div>
   <p>© 2025 PNK Inmobiliaria</p>
 </footer>
+<script>
+  const propiedadesPropietario = {
+    C0123456: {
+      tipo: 'Casa',
+      titulo: 'Casa en La Serena',
+      codigo: 'C0123456',
+      publicado: '15/03/2025',
+      precio: '$85.000.000',
+      uf: 'UF 2.450',
+      dormitorios: '3',
+      banos: '2',
+      construida: '120 m²',
+      terreno: '210 m²',
+      descripcion: 'Casa familiar con terraza, jardín y ubicación estratégica en La Serena.',
+      amenidades: ['✓ Estacionamiento', '✓ Bodega', '✓ Patio']
+    },
+    C0123457: {
+      tipo: 'Departamento',
+      titulo: 'Depto. Centro Coquimbo',
+      codigo: 'C0123457',
+      publicado: '20/03/2025',
+      precio: '$45.000.000',
+      uf: 'UF 1.300',
+      dormitorios: '2',
+      banos: '1',
+      construida: '65 m²',
+      terreno: '—',
+      descripcion: 'Departamento céntrico con buena luminosidad y acceso a comercio y transporte.',
+      amenidades: ['✓ Logia', '✓ Ascensor', '✓ Seguridad']
+    },
+    C0123458: {
+      tipo: 'Terreno',
+      titulo: 'Terreno Ovalle',
+      codigo: 'C0123458',
+      publicado: '01/04/2025',
+      precio: '$120.000.000',
+      uf: 'UF 3.500',
+      dormitorios: '—',
+      banos: '—',
+      construida: '—',
+      terreno: '500 m²',
+      descripcion: 'Terreno amplio y plano ideal para construcción residencial o comercial.',
+      amenidades: ['✓ Ubicación urbana', '✓ Zona tranquila', '✓ Fácil acceso']
+    }
+  };
+
+  function abrirModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function cerrarModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function mostrarDetalle(codigo) {
+    const prop = propiedadesPropietario[codigo];
+    if (!prop) return;
+    document.getElementById('detalle-tipo').textContent = prop.tipo;
+    document.getElementById('detalle-titulo').textContent = prop.titulo;
+    document.getElementById('detalle-codigo').textContent = `Cód: ${prop.codigo} · Publicado: ${prop.publicado}`;
+    document.getElementById('detalle-precio').textContent = prop.precio;
+    document.getElementById('detalle-precio-uf').textContent = prop.uf;
+    document.getElementById('detalle-dormitorios').textContent = prop.dormitorios;
+    document.getElementById('detalle-banos').textContent = prop.banos;
+    document.getElementById('detalle-construida').textContent = prop.construida;
+    document.getElementById('detalle-terreno').textContent = prop.terreno;
+    document.getElementById('detalle-descripcion').textContent = prop.descripcion;
+    const amenidades = document.getElementById('detalle-amenidades');
+    amenidades.innerHTML = '';
+    prop.amenidades.forEach(item => {
+      const span = document.createElement('span');
+      span.className = 'amenidad';
+      span.textContent = item;
+      amenidades.appendChild(span);
+    });
+    abrirModal('modal-detalle-propiedad');
+  }
+
+  function editarPropiedad(codigo) {
+    const prop = propiedadesPropietario[codigo];
+    if (!prop) return;
+    document.getElementById('editar-codigo').value = prop.codigo;
+    document.getElementById('editar-sector').value = prop.titulo;
+    document.getElementById('editar-precio').value = parseInt(prop.precio.replace(/\D/g, '')) || '';
+    document.getElementById('editar-precio-uf').value = prop.uf.replace(/\D/g, '');
+    document.getElementById('editar-dormitorios').value = prop.dormitorios === '—' ? '' : prop.dormitorios;
+    document.getElementById('editar-banos').value = prop.banos === '—' ? '' : prop.banos;
+    document.getElementById('editar-descripcion').value = prop.descripcion;
+    abrirModal('modal-editar-propiedad');
+  }
+
+  function eliminarPropiedad(codigo) {
+    if (confirm(`¿Eliminar la propiedad ${codigo}?`)) {
+      alert(`Propiedad ${codigo} eliminada. Puedes volver a ingresar sus antecedentes si lo deseas.`);
+    }
+  }
+
+  document.getElementById('form-nueva-propiedad').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Propiedad registrada exitosamente. Ahora puedes editarla desde el listado.');
+    cerrarModal('modal-nueva-propiedad');
+  });
+
+  document.getElementById('form-editar-propiedad').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Datos de la propiedad actualizados correctamente.');
+    cerrarModal('modal-editar-propiedad');
+  });
+
+  document.querySelectorAll('.modal-overlay').forEach(m => {
+    m.addEventListener('click', e => { if (e.target === m) cerrarModal(m.id); });
+  });
+</script>
 </body>
 </html>
